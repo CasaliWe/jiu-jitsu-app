@@ -52,12 +52,12 @@
 
             <div class='mb-3'>
               <label for='img_treino' class="small">Imagem do treino*</label>
-              <input type='file' id='img_treino' name='img_treino' class='form-control' required>
+              <input type='file' id='img_treino' name='img_treino[]' class='form-control' multiple required>
             </div>
 
             <div class='mb-3'>
               <label for='observacoes_treino' class="small">Observações do treino*</label> <br>
-              <small>( Separe as observações por ponto e vírgula " ; " )</small>
+              <small>( Separe as observações por ponto e vírgula " ; " ou "enter")</small>
               <textarea id='observacoes_treino' rows="3" name='observacoes_treino' class='form-control' required></textarea>
             </div>
 
@@ -71,3 +71,40 @@
   </div>
 </div>
 <!-- modal treino -->
+
+
+<!-- mask obervações -->
+<script>
+  // mask obervações
+  document.getElementById('observacoes_treino').addEventListener('input', function(e) {
+      var value = e.target.value;
+      var asteriscos = (value.match(/\*/g) || []).length;
+      if (value.length === 1 && value[0] !== '*' && asteriscos < 5) {
+          e.target.value = '* ' + value;
+      } else if (value.slice(-1) === ';' && value.slice(-3) !== '* ;' && asteriscos < 5) {
+          e.target.value = value + '\n* ';
+      }
+  });
+
+  document.getElementById('observacoes_treino').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+          e.preventDefault(); // impede a quebra de linha padrão
+          var value = e.target.value;
+          var asteriscos = (value.match(/\*/g) || []).length;
+          if (value.slice(-1) !== ';' && value.slice(-3) !== '* ;' && asteriscos < 5) {
+              e.target.value = value + ';\n* ';
+          }
+      }
+  });
+
+  // mask input aula
+  document.getElementById('aula_treino').addEventListener('input', function(e) {
+    var value = e.target.value;
+    value = value.replace(/[^\d]/g, ''); // remove todos os caracteres que não são dígitos
+    if (value.length > 0) {
+        value = value + 'ª'; // adiciona 'ª' no final se a string não estiver vazia
+    }
+    e.target.value = value;
+  });
+</script>
+<!-- mask obervações -->

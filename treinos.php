@@ -2,14 +2,14 @@
     // verifica auth
     include_once 'helpers/verifica-auth.php';
 
-    //busca dados do usuário
     require 'config/bootstrap.php';
+
+    //busca dados do usuário
     use Repositories\UserRepository;
     $userRepository = new UserRepository();
     $user = $userRepository->getUser($_COOKIE['identificador']);
 
     //busca todos os treinos
-    require 'config/bootstrap.php';
     require 'repositories/TreinoRepository.php';
     use Repositories\TreinoRepository;
     $TreinoRepository = new TreinoRepository();

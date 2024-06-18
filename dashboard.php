@@ -2,8 +2,9 @@
     // verifica auth
     include_once 'helpers/verifica-auth.php';
 
-    //busca dados do usuário
     require 'config/bootstrap.php';
+
+    //busca dados do usuário
     use Repositories\UserRepository;
     $userRepository = new UserRepository();
     $user = $userRepository->getUser($_COOKIE['identificador']);

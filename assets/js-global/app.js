@@ -1,4 +1,4 @@
-var base_url = "http://localhost/jiu-jitsu-app"
+var base_url = "http://localhost/jiu-jitsu"
 
 
 // ativa o loading
