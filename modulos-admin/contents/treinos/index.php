@@ -8,7 +8,7 @@
 <section>
     <h6 class="small mb-4">Aqui você pode <strong>Adicionar</strong> todos os seus treinos!</h6>
 
-    <button class="btn btn-success btn-sm">Adicionar novo treino +</button>
+    <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal-treino">Adicionar novo treino +</button>
 
     <!-- dias -->
     <div class="my-4 item-acordion accordion">
@@ -105,3 +105,11 @@
 <!-- TREINOS -->
 
 <script src="<?php echo $base_url ?>modulos-admin/contents/treinos/js/app.js"></script>
+
+
+
+
+
+
+
+

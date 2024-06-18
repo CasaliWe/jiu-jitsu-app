@@ -25,9 +25,9 @@
             <input type="password" required class="small w-75 mb-3 form-control text-center" placeholder="Confirme*" name="confirme">
         </div>
 
-        <button type="submit" class="btn btn-principal rounded w-50">CRIAR</button>
+        <button type="submit" class="btn btn-principal rounded w-75">CRIAR</button>
 
-        <a href="index.php" class="w-50 mt-2 btn btn-secondary">VOLTAR</a>
+        <a href="index.php" class="w-75 mt-2 btn btn-secondary">VOLTAR</a>
 
         <?php if(isset($_SESSION['erro-register'])){ ?>
             <h6 class="mt-3 fw-semibold text-danger"><?= $_SESSION['erro-register']; ?></h6>

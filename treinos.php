@@ -7,6 +7,13 @@
     use Repositories\UserRepository;
     $userRepository = new UserRepository();
     $user = $userRepository->getUser($_COOKIE['identificador']);
+
+    //busca todos os treinos
+    require 'config/bootstrap.php';
+    require 'repositories/TreinoRepository.php';
+    use Repositories\TreinoRepository;
+    $TreinoRepository = new TreinoRepository();
+    $treinos = $TreinoRepository->getAllTreinos();
 ?>
 
 <!DOCTYPE html>
@@ -43,6 +50,10 @@
     <!-- MODAL AVISOS -->
      <?php include_once "modulos-admin/modal-aviso/index.php"; ?>
     <!-- MODAL AVISOS -->
+
+    <!-- MODAL ADD TREINO -->
+    <?php include_once "modulos-admin/modal-treino/index.php"; ?>
+    <!-- MODAL ADD TREINO -->
 
 
     <!--BOOTSTRAP JS-->

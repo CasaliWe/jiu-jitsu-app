@@ -1,7 +1,7 @@
 <?php
 
 // ***********BASE URL***********
-$base_url = "http://localhost/jiu-jitsu/";
+$base_url = "http://localhost/jiu-jitsu-app/";
 
 
 // ***********CONFIGURAÇÕES GERAIS DO ADMIN***********
