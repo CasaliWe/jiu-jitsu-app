@@ -6,9 +6,9 @@ use Models\Treino;
 
 class TreinoRepository {
     
-    // busca todos os usuários
+    // busca todos os treinos do usuário
     public function getAllTreinos() {
-        return Treino::all();
+        return Treino::with('categorias.posicoes.finalizacoes')->where('user_identificador', $_COOKIE['identificador'])->get();
     }
 
     //criar um novo treino
@@ -20,7 +20,8 @@ class TreinoRepository {
             'hora_treino' => $hora_treino,
             'data_treino' => $data_treino,
             'img_treino' => $nomesArquivos,
-            'observacoes_treino' => $observacoes
+            'observacoes_treino' => $observacoes,
+            'user_identificador' => $_COOKIE['identificador']
         ]);
 
         if($treino) {

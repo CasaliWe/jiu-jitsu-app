@@ -11,42 +11,57 @@
     <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal-treino">Adicionar novo treino +</button>
 
     <!-- dias -->
+    <?php foreach ($treinos as $key => $treino) { ?>
+    
+    <?php
+    // montando a data
+    setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+    $data_completa = strftime('%d de %B de %Y', strtotime($treino['data_treino'])); 
+    $data_reduzida = date('d-m-Y', strtotime($treino['data_treino']));
+
+    // pegando o nome das imagens do json
+    $imgs_treino = json_decode($treino['img_treino'], true);
+
+    // pegando as observações do treino
+    $obsJson = json_decode($treino['observacoes_treino'], true);
+    $observacoes = explode(';', $obsJson[0]);
+    ?>
+
     <div class="my-4 item-acordion accordion">
         <div class="accordion-item">
             <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treino-1" aria-expanded="false" aria-controls="treino-1">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treino-<?php echo $key ?>" aria-expanded="false" aria-controls="treino-<?php echo $key ?>">
                     <div class="d-flex align-items-center justify-content-between w-100 ps-2 pe-4">
                         <div class="d-flex flex-column text-start">
-                            <span class="mb-1 small fw-semibold">Jiu Jitsu</span>
-                            <span class="small"> <span class="text-primary fw-semibold">41º</span> aula </span>
+                            <span class="mb-1 small fw-semibold"><?= $treino['tipo_treino']; ?></span>
+                            <span class="small"> <span class="text-primary fw-semibold"><?= $treino['aula_treino']; ?></span> aula </span>
                         </div>
 
                         <div class="d-flex flex-column text-end">
-                            <span class="mb-1 small d-none d-lg-block">Segunda Feira - 19:30 hrs</span>
-                            <span class="small d-none d-lg-block">17 de junho de 2024</span>
+                            <span class="mb-1 small d-none d-lg-block"><?= $treino['dia_treino']; ?> - <?= $treino['hora_treino']; ?> hrs</span>
+                            <span class="small d-none d-lg-block"><?= $data_completa; ?></span>
 
-                            <span class="mb-1 small d-block d-lg-none">Seg - 19:30 hrs</span>
-                            <span class="small d-block d-lg-none">17-06-2024</span>
+                            <span class="mb-1 small d-block d-lg-none"><?= substr($treino['dia_treino'], 0, 3); ?> - <?= $treino['hora_treino']; ?> hrs</span>
+                            <span class="small d-block d-lg-none"><?= $data_reduzida; ?></span>
                         </div>
                     </div>
                 </button>
             </h2>
-            <div id="treino-1" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+            <div id="treino-<?php echo $key ?>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
     
                     <div class="row my-3">
                         <div class="mb-4 col-12 col-lg-6 col-xxl-5">
-                            <div class="container-img-treino"> <img src="<?= $base_url; ?>assets/imagens/site-admin/banner-login.jpg"> </div>
+                            <div class="container-img-treino"> <img src="<?= $base_url; ?>assets/imagens/site-admin/treinos/<?= $imgs_treino[0] ?>"> </div>
                         </div>
 
                         <div class="mb-4 col-12 col-lg-6 col-xxl-3 px-3">
                             <h6 class="fw-semibold mb-3">Observações gerais:</h6>
 
-                            <div class="small d-flex flex-column">
-                                <span class="mb-1">* Treino de Jiu Jitsu;</span>
-                                <span class="mb-1">* Treino de Jiu Jitsu;</span>
-                                <span class="mb-1">* Treino de Jiu Jitsu;</span>
-                                <span class="mb-1">* Treino de Jiu Jitsu;</span>
+                            <div class="small">
+                                <?php foreach ($observacoes as $obs) { ?>
+                                    <p class="mb-1"><?= $obs; ?></p>
+                                <?php } ?>
                             </div>
                         </div>
 
@@ -98,6 +113,7 @@
                 </div>
             </div>
         </div>
+        <?php } ?>
         <!-- dias -->
 
     </div>

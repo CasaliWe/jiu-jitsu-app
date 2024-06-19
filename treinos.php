@@ -8,12 +8,7 @@
     use Repositories\UserRepository;
     $userRepository = new UserRepository();
     $user = $userRepository->getUser($_COOKIE['identificador']);
-
-    //busca todos os treinos
-    require 'repositories/TreinoRepository.php';
-    use Repositories\TreinoRepository;
-    $TreinoRepository = new TreinoRepository();
-    $treinos = $TreinoRepository->getAllTreinos();
+    $treinos = $user->treinos;
 ?>
 
 <!DOCTYPE html>

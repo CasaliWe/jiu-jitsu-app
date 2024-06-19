@@ -23,13 +23,13 @@
               <label for='dia_treino' class="small">Dia do treino*</label>
               <select name="dia_treino" id="dia_treino" class="form-select">
                 <option value="">-- selecione um dia --</option>
-                <option value="segunda">Segunda</option>
-                <option value="terca">Terça</option>
-                <option value="quarta">Quarta</option>
-                <option value="quinta">Quinta</option>
-                <option value="sexta">Sexta</option>
-                <option value="sabado">Sábado</option>
-                <option value="domingo">Domingo</option>
+                <option value="Segunda Feira">Segunda</option>
+                <option value="Terça Feira">Terça</option>
+                <option value="Quarta Feira">Quarta</option>
+                <option value="Quinta Feira">Quinta</option>
+                <option value="Sexta Feira">Sexta</option>
+                <option value="Sábado">Sábado</option>
+                <option value="Domingo">Domingo</option>
               </select>
             </div>
 
@@ -58,7 +58,7 @@
             <div class='mb-3'>
               <label for='observacoes_treino' class="small">Observações do treino*</label> <br>
               <small>( Separe as observações por ponto e vírgula " ; " ou "enter")</small>
-              <textarea id='observacoes_treino' rows="3" name='observacoes_treino' class='form-control' required></textarea>
+              <textarea style="font-size: 12px;" id='observacoes_treino' rows="5" name='observacoes_treino' class='form-control' required></textarea>
             </div>
 
           </div>

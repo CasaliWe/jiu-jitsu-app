@@ -11,6 +11,17 @@ class UserRepository {
         return User::all();
     }
 
+    // Busca um usuário pelo identificador
+    public function getUser($identificador) {
+        $user = User::with('treinos.categorias.posicoes.finalizacoes')->where('identificador', $identificador)->first();
+
+        if($user){
+            return $user;
+        }else{
+            return false;
+        }
+    }
+
     // Atualizar o campo 'token' diretamente
     public function updateTokenUser($identificador, $valor) {
        $userSuccess = User::where('identificador', $identificador)->update(['token' => $valor]);
@@ -21,17 +32,6 @@ class UserRepository {
             return false;
        }
 
-    }
-
-    // Busca um usuário pelo identificador
-    public function getUser($identificador) {
-        $user = User::where('identificador', $identificador)->first();
-
-        if($user){
-            return $user;
-        }else{
-            return false;
-        }
     }
 
     // Busca um usuário pelo login
