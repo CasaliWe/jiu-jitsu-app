@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categoria extends Model {
     protected $table = 'categorias';
-    protected $fillable = ['nome', 'user_identificador', 'user_id'];
+    protected $fillable = ['nome', 'user_identificador', 'treino_id'];
     public $timestamps = false;
 
     public function treinos()

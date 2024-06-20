@@ -70,7 +70,7 @@
                                 
                                 <div class="mb-3 d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center">
                                     <h6 class="fw-semibold">Finalizações do dia:</h6>
-                                    <button class="btn btn-success btn-sm">finalizações +</button>
+                                    <button type="button" onclick="adicionarIdModalAddFinalizacao('<?= $treino['treino_id']; ?>')" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalAddFinalizacao">finalizações +</button>
                                 </div>
 
                                 <!-- finalizações -->
