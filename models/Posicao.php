@@ -3,7 +3,6 @@
 namespace Models;
 
 use Illuminate\Database\Eloquent\Model;
-require_once __DIR__ .'/../models/Finalizacao.php';
 
 class Posicao extends Model {
     protected $table = 'posicoes';

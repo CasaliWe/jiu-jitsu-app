@@ -3,9 +3,7 @@
 session_start();
 
 require '../../../config/bootstrap.php';
-require '../../../repositories/UserRepository.php';
 use Repositories\UserRepository;
-$userRepository = new UserRepository();
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -23,14 +21,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 
-    $user = $userRepository->findByLogin($login);
+    $user = UserRepository::findByLogin($login);
     if ($user) {
         $_SESSION['erro-register'] = 'Login já cadastrado!';
         header('Location: ../../../register.php');
         exit;
     }
 
-    $user = $userRepository->findByEmail($email);
+    $user = UserRepository::findByEmail($email);
     if ($user) {
         $_SESSION['erro-register'] = 'E-mail já cadastrado!';
         header('Location: ../../../register.php');
@@ -42,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $identificador = bin2hex(random_bytes(16));
     $senha = password_hash($senhaInput, PASSWORD_DEFAULT);
 
-    $user = $userRepository->create([
+    $user = UserRepository::create([
         'login' => $login,
         'senha' => $senha,
         'token' => $token,

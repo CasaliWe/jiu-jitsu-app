@@ -2,9 +2,7 @@
 
 // require
 require '../../../../config/bootstrap.php';
-require '../../../../repositories/UserRepository.php';
 use Repositories\UserRepository;
-$userRepository = new UserRepository();
 
 // Get user data
 $identificador = $_POST['identificador'];
@@ -18,7 +16,7 @@ if (isset($_FILES['imagem-perfil']) && $_FILES['imagem-perfil']['error'] != UPLO
     move_uploaded_file($_FILES['imagem-perfil']['tmp_name'], $caminhoDestino);
 
     // Update user data
-    $res = $userRepository->updateUserImage($identificador, $nomeArquivo);
+    $res = UserRepository::updateUserImage($identificador, $nomeArquivo);
     if($res){
         header('Location: ../../../../dashboard.php?success=true');
     }else{

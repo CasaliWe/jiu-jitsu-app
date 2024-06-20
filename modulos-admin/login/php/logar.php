@@ -3,15 +3,13 @@
 session_start();
 
 require '../../../config/bootstrap.php';
-require '../../../repositories/UserRepository.php';
 use Repositories\UserRepository;
-$userRepository = new UserRepository();
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // busca os users no banco
-    $dadosLogin = $userRepository->getAllUsers();
+    $dadosLogin = UserRepository::getAllUsers();
 
     foreach ($dadosLogin as $login) { 
         // testando login
@@ -22,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $token = bin2hex(random_bytes(16));
             // verificando se o usuário quer permanecer logado
             if(isset($_POST['permanecer-logado'])){
-                $res = $userRepository->updateTokenUser($login['identificador'], $token);
+                $res = UserRepository::updateTokenUser($login['identificador'], $token);
                 if($res){
                     setcookie("identificador", $login['identificador'], time() + (86400 * 7), "/");
                     setcookie("token", $token, time() + (86400 * 7), "/");
@@ -33,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     exit;
                 }
             }else{
-                $res = $userRepository->updateTokenUser($login['identificador'], $token);
+                $res = UserRepository::updateTokenUser($login['identificador'], $token);
                 if($res){
                     setcookie("identificador", $login['identificador'], 0, "/");
                     setcookie("token", $token, 0, "/");

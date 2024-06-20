@@ -1,18 +1,17 @@
 <?php
 namespace Repositories;
 
-require __DIR__ .'/../models/Treino.php';
 use Models\Treino;
 
 class TreinoRepository {
     
     // busca todos os treinos do usuário
-    public function getAllTreinos() {
+    public static function getAllTreinos() {
         return Treino::with('categorias.posicoes.finalizacoes')->where('user_identificador', $_COOKIE['identificador'])->get();
     }
 
-    //criar um novo treino
-    public function createTreino($tipo_treino, $aula_treino, $dia_treino, $hora_treino, $data_treino, $observacoes, $nomesArquivos) {
+    //criar um novo treino para o usuário
+    public static function createTreino($tipo_treino, $aula_treino, $dia_treino, $hora_treino, $data_treino, $observacoes, $nomesArquivos) {
         $treino = Treino::create([
             'tipo_treino' => $tipo_treino,
             'aula_treino' => $aula_treino,

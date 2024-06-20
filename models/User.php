@@ -3,8 +3,6 @@
 namespace Models;
 
 use Illuminate\Database\Eloquent\Model;
-require_once __DIR__ .'/../models/Treino.php';
-require_once __DIR__ .'/../models/Categoria.php';
 
 class User extends Model {
     protected $table = 'user';

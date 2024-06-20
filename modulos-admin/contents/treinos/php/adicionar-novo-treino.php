@@ -1,9 +1,7 @@
 <?php
 
 require '../../../../config/bootstrap.php';
-require '../../../../repositories/TreinoRepository.php';
 use Repositories\TreinoRepository;
-$treinoRepository = new TreinoRepository();
 
 // pegando os dados do formulário
 $tipo_treino = $_POST['tipo_treino'];
@@ -40,7 +38,7 @@ $nomesArquivos_json = json_encode($nomesArquivos);
 
 
 // criando o treino
-$treino = $treinoRepository->createTreino($tipo_treino, $aula_treino, $dia_treino, $hora_treino, $data_treino, $observacoes_json, $nomesArquivos_json);
+$treino = TreinoRepository::createTreino($tipo_treino, $aula_treino, $dia_treino, $hora_treino, $data_treino, $observacoes_json, $nomesArquivos_json);
 if($treino) {
     header('Location: ../../../../treinos.php?success=true');
 } else {

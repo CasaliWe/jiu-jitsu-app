@@ -3,7 +3,6 @@
 namespace Models;
 
 use Illuminate\Database\Eloquent\Model;
-require_once __DIR__ .'/../models/Posicao.php';
 
 class Categoria extends Model {
     protected $table = 'categorias';
