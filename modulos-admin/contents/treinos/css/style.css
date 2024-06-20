@@ -9,9 +9,17 @@
     object-position: center;
 }
 
+._container-finalizacao-treino{
+    border-top: 1px solid #ccccccbe;
+}
+
 @media(min-width:1500px){
     .container-img-treino{
         width: 95%;
         height: 280px;
+    }
+
+    ._container-finalizacao-treino{
+        border-top: none;
     }
 }

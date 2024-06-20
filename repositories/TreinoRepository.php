@@ -30,4 +30,15 @@ class TreinoRepository {
         }
     }
 
+    //deletar um treino
+    public static function delete($id) {
+        $res = Treino::where('treino_id', $id)->delete();
+
+        if($res) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

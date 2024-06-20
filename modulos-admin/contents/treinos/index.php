@@ -31,18 +31,26 @@
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treino-<?php echo $key ?>" aria-expanded="false" aria-controls="treino-<?php echo $key ?>">
-                        <div class="d-flex align-items-center justify-content-between w-100 ps-2 pe-4">
+                        <div class="d-flex align-items-center justify-content-between w-100 px-2">
                             <div class="d-flex flex-column text-start">
                                 <span class="mb-1 small fw-semibold"><?= $treino['tipo_treino']; ?></span>
                                 <span class="small"> <span class="text-primary fw-semibold"><?= $treino['aula_treino']; ?></span> aula </span>
                             </div>
 
-                            <div class="d-flex flex-column text-end">
+                            <div class="d-flex flex-column text-center">
                                 <span class="mb-1 small d-none d-lg-block"><?= $treino['dia_treino']; ?> - <?= $treino['hora_treino']; ?> hrs</span>
                                 <span class="small d-none d-lg-block"><?= $data_completa; ?></span>
 
                                 <span class="mb-1 small d-block d-lg-none"><?= substr($treino['dia_treino'], 0, 3); ?> - <?= $treino['hora_treino']; ?> hrs</span>
                                 <span class="small d-block d-lg-none"><?= $data_reduzida; ?></span>
+                            </div>
+
+                            <div class="dropdown ps-2 pe-0 ps-lg-3 pe-lg-1" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v"></i>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li><a class="dropdown-item">Editar</a></li>
+                                    <li><a class="dropdown-item" onclick="deletarTreino('<?= $treino['treino_id'] ?>')">Deletar</a></li>
+                                </ul>
                             </div>
                         </div>
                     </button>
@@ -66,53 +74,103 @@
                             </div>
 
                             <!-- container finalizações -->
-                            <div class="col-12 col-lg-12 col-xxl-4 px-3 px-xxl-4">
+                            <div class="_container-finalizacao-treino pt-4 pt-xxl-0 col-12 col-lg-12 col-xxl-4 px-3 px-xxl-4">
                                 
                                 <div class="mb-3 d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center">
-                                    <h6 class="fw-semibold">Finalizações do dia:</h6>
-                                    <button type="button" onclick="adicionarIdModalAddFinalizacao('<?= $treino['treino_id']; ?>')" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalAddFinalizacao">finalizações +</button>
+                                    <button type="button" onclick="adicionarIdModalAddFinalizacao('<?= $treino['treino_id']; ?>')" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalAddFinalizacao">Adicionar finalizações +</button>
                                 </div>
 
                                 <!-- finalizações -->
-                                <div class="mb-3 item-acordion accordion">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#finalizacao-id-1" aria-expanded="false" aria-controls="finalizacao-id-1">
-                                                TRIÂNGULO
-                                            </button>
-                                        </h2>
-                                        <div id="finalizacao-id-1" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                            <div class="accordion-body">
+                                <?php 
+                                    $posicoes = [];
+                                    $finalizacaoes = [];
+
+                                    if (isset($treino['categorias'])) {
+                                        foreach ($treino['categorias'] as $categoria) {
+                                            if (isset($categoria['posicoes'])) {
+                                                foreach ($categoria['posicoes'] as $posicao) {
+                                                    $posicoes[] = $posicao;
+                                                }
+                                            }
+                                        }
+                                    }
                                 
-                                                <div class="d-flex flex-column mb-3">
-                                                    <h6 class="mb-2">Passo a passo:</h6>
+                                    foreach ($posicoes as $posicao) {
+                                        if (isset($posicao->finalizacoes)) {
+                                            foreach ($posicao->finalizacoes as $finalizacao) { ?>
+                                                <?php $finalizacaoes[] = $finalizacao; ?>
 
-                                                    <span class="mb-1">1- Passar perna pelo pescoço;</span>
-                                                    <span class="mb-1">2- Fechar atrás do joelho;</span>
-                                                    <span class="mb-1">3- Puxar Cabeça;</span>
+                                                <div class="mb-3 item-acordion accordion">
+                                                    <div class="accordion-item">
+                                                        <h2 class="accordion-header d-flex px-2 align-items-center justify-content-between">
+                                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#finalizacao-<?php echo $finalizacao['id'] ?>" aria-expanded="false" aria-controls="finalizacao-<?php echo $finalizacao['id'] ?>">
+                                                                <?= $finalizacao['nome']; ?>
+                                                            </button>
+
+                                                            <div style="cursor: pointer;" class="dropdown ps-3 pe-1 ps-lg-3 pe-lg-3 d-flex justify-content-center" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                <i class="fas fa-ellipsis-v fs-5"></i>
+                                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                                    <li><a class="dropdown-item">Editar</a></li>
+                                                                    <li><a class="dropdown-item" onclick="deletarFinalizacao('<?= $finalizacao['id'] ?>')">Deletar</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </h2>
+                                                        <div id="finalizacao-<?php echo $finalizacao['id'] ?>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                                            <div class="accordion-body">
+                                                
+                                                                <div class="d-flex flex-column mb-3">
+                                                                    <h6 class="mb-2">Passo a passo:</h6>
+
+                                                                    <?php 
+                                                                       $passos = json_decode($finalizacao['passo_a_passo'], true);
+
+                                                                       foreach ($passos as $passo) { ?>
+                                                                            <span class="mb-1"><?= $passo; ?></span>
+                                                                       <?php } 
+                                                                    ?>
+                                                                </div>
+
+                                                                <div class="d-flex flex-column">
+                                                                    <h6 class="mb-2">Observações:</h6>
+
+                                                                    <?php 
+                                                                       $obs_finalizacao = json_decode($finalizacao['observacoes'], true);
+
+                                                                       foreach ($obs_finalizacao as $obs) { ?>
+                                                                            <span class="mb-1">* <?= $obs; ?>;</span>
+                                                                       <?php } 
+                                                                    ?>
+                                                                </div>
+                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
+                                                 
+                                            <?php } 
+                                        }
+                                    }
 
-                                                <div class="d-flex flex-column">
-                                                    <h6 class="mb-2">Observações:</h6>
-
-                                                    <span class="mb-1">* Travar braço para não escapar;</span>
-                                                    <span class="mb-1">* Regra dos 4 segundos;</span>
-                                                </div>
-                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                    // verifica se não tem finalizações para exibir
+                                    if(count($posicoes) == 0) {
+                                        echo '<p class="small">Nenhuma finalização cadastrada!</p>';
+                                    }else{
+                                        if(count($finalizacaoes) == 0) {
+                                            echo '<p class="small">Nenhuma finalização cadastrada!</p>';
+                                        }
+                                    }
+                                ?>
                                 <!-- finalizações -->
 
                             </div>
                             <!-- container finalizações -->
 
                         </div>
-        
                     </div>
+                    
                 </div>
             </div>
+        </div>
         <?php } ?>
         <!-- dias -->
 

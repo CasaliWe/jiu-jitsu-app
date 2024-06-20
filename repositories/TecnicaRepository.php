@@ -34,4 +34,15 @@ class TecnicaRepository {
         }
     }
 
+    // Deleta a finalizacao
+    public static function deleteFinalizacao($id) {
+        $finalizacao = Finalizacao::find($id);
+        if($finalizacao) {
+            $finalizacao->delete();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

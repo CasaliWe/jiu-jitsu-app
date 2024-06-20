@@ -95,3 +95,17 @@ a:hover{
         margin-bottom: 35px;
     }
 }
+
+
+/* removendo arrow dos acordeons */
+.accordion-button::after {
+    flex-shrink: 0;
+    width: auto;
+    height: auto;
+    margin-left: auto;
+    content: "";
+    background-image: none;
+    background-repeat: no-repeat;
+    background-size: auto;
+    transition: none;
+}
