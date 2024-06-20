@@ -32,7 +32,7 @@ $obs_finalizacao_json = json_encode($obs_array);
 $res = TecnicaRepository::createFinalizacao($treino_id, $categoria_finalizacao, $posicao_finalizacao, $finalizacao, $passo_a_passo_json, $obs_finalizacao_json);
 
 if($res) {
-    header('Location: ../../../../treinos.php?success=true');
+    header('Location: ../../../../treinos.php?create=true');
 } else {
     header('Location: ../../../../treinos.php?error=true');
 }

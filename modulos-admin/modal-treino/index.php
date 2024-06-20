@@ -11,7 +11,10 @@
           
             <div class='mb-3'>
               <label for='tipo_treino' class="small">Tipo do treino*</label>
-              <input type='type' id='tipo_treino' name='tipo_treino' placeholder='Ex: jiu jitsu' class='form-control' required>
+              <select name="tipo_treino" required class="form-select" id="tipo_treino">
+                <option value="Jiu Jitsu" selected>Jiu Jitsu</option>
+                <option value="No Gi">No Gi</option>
+              </select>
             </div>
 
             <div class='mb-3'>
@@ -22,8 +25,7 @@
             <div class='mb-3'>
               <label for='dia_treino' class="small">Dia do treino*</label>
               <select name="dia_treino" id="dia_treino" class="form-select">
-                <option value="">-- selecione um dia --</option>
-                <option value="Segunda Feira">Segunda</option>
+                <option value="Segunda Feira" selected>Segunda</option>
                 <option value="Terça Feira">Terça</option>
                 <option value="Quarta Feira">Quarta</option>
                 <option value="Quinta Feira">Quinta</option>
@@ -36,10 +38,9 @@
             <div class='mb-3'>
               <label for='hora_treino' class="small">Hora do treino*</label>
               <select name="hora_treino" id="hora_treino" class="form-select">
-                 <option value="">-- selecione um horário --</option>
                  <option value="06:30">06:30 hrs</option>
                  <option value="12:00">12:00 hrs</option>
-                 <option value="19:30">19:30 hrs</option>
+                 <option value="19:30" selected>19:30 hrs</option>
                  <option value="21:00">21:00 hrs</option>
                  <option value="22:00">22:00 hrs</option>
               </select>
@@ -47,7 +48,7 @@
 
             <div class='mb-3'>
               <label for='data_treino' class="small">Data do treino*</label>
-              <input type='date' id='data_treino' name='data_treino' class='form-control' required>
+              <input type='date' id='data_treino' value="<?php echo date('Y-m-d'); ?>" name='data_treino' class='form-control' required>
             </div>
 
             <div class='mb-3'>

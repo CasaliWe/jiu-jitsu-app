@@ -10,7 +10,7 @@ async function deletarTreino(id){
     const data = await res.json()
     if(data.status){
         let url = new URL(window.location.href);
-        url.searchParams.append('success', 'true');
+        url.searchParams.append('delete', 'true');
         window.location.href = url;
     }
 }
@@ -22,7 +22,7 @@ async function deletarFinalizacao(id){
     const data = await res.json()
     if(data.status){
         let url = new URL(window.location.href);
-        url.searchParams.append('success', 'true');
+        url.searchParams.append('delete', 'true');
         window.location.href = url;
     }
 }

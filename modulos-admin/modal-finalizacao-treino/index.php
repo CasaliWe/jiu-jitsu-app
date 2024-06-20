@@ -14,16 +14,24 @@
 
               <div class='mb-3'>
                 <label for='categoria_finalizacao' class="small">Categoria*</label>
-                <select class="form-select" name="categoria_finalizacao" required id="categoria_finalizacao">
-                    <option value="">-- Selecione uma categoria --</option>
-                    <option value="Passador">Passador</option>
+                <select onchange="buscarPosicoes()" class="form-select" name="categoria_finalizacao" required id="categoria_finalizacao">
+                    <option value="Passador" selected>Passador</option>
                     <option value="Guardeiro">Guardeiro</option>
                 </select>
               </div>
 
-              <div class='mb-3'>
-                <label for='posicao_finalizacao' class="small">Posição*</label>
-                <input type="text" required name="posicao_finalizacao" id="posicao_finalizacao" class="form-control">
+              <div class="row">
+                  <div class="mb-4 col-8">
+                    <label for="posicao_finalizacao" class="small">Nova posição*</label>
+                    <input required name="posicao_finalizacao" id="posicao_finalizacao" class="form-control">
+                    <div class="form-text">Para criar com uma nova posição.</div>
+                  </div>
+                  <div class="mb-4 col-4">
+                    <label for="existentes" class="small">Existentes*</label>
+                    <select onchange="attCampoPosicao()" id="existentes" name="existentes" class="form-select">
+                       
+                    </select>
+                  </div>
               </div>
 
               <div class='mb-3'>
@@ -55,6 +63,42 @@
 
 
 <script>
+  // func para buscar e inserir as posições com ooptions
+  async function buscarPosicoes() {
+      var categoria = document.getElementById('categoria_finalizacao').value;
+      if(categoria === 'Guardeiro') {
+          const res = await fetch('modulos-admin/contents/treinos/php/buscar-posicoes.php?categoria=Guardeiro');
+          const data = await res.json();
+          
+          document.getElementById("existentes").innerHTML = '';
+          document.getElementById("existentes").innerHTML = `<option value="">Selecione</option>`
+          data.forEach(element => {
+            document.getElementById("existentes").innerHTML += `
+              <option value="${element.nome}">${element.nome}</option>
+            `
+          });
+      } else {
+          const res = await fetch('modulos-admin/contents/treinos/php/buscar-posicoes.php?categoria=Passador');
+          const data = await res.json();
+
+          document.getElementById("existentes").innerHTML = '';
+          document.getElementById("existentes").innerHTML = `<option value="">Selecione</option>`
+          data.forEach(element => {
+            document.getElementById("existentes").innerHTML += `
+              <option value="${element.nome}">${element.nome}</option>
+            `
+          });
+      }
+  }
+  buscarPosicoes();
+
+  // atualizar o campo posição pelo select
+  function attCampoPosicao() {
+      var existente = document.getElementById('existentes').value;
+      document.getElementById('posicao_finalizacao').value = existente;
+      document.getElementById('posicao_finalizacao').value = existente;
+  }
+
   // mask passo a passo
   document.getElementById('passo-a-passo').addEventListener('input', function(e) {
       var value = e.target.value;

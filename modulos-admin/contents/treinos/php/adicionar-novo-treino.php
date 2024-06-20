@@ -40,7 +40,7 @@ $nomesArquivos_json = json_encode($nomesArquivos);
 // criando o treino
 $treino = TreinoRepository::createTreino($tipo_treino, $aula_treino, $dia_treino, $hora_treino, $data_treino, $observacoes_json, $nomesArquivos_json);
 if($treino) {
-    header('Location: ../../../../treinos.php?success=true');
+    header('Location: ../../../../treinos.php?create=true');
 } else {
     header('Location: ../../../../treinos.php?error=true');
 }

@@ -45,4 +45,20 @@ class TecnicaRepository {
         }
     }
 
+    // Busca todas as posições por categoria
+    public static function findByCategoria($categoria) {
+        $categorias = Categoria::where('user_identificador', $_COOKIE['identificador'])->get();
+        $posicoes = [];
+        foreach($categorias as $cat) {
+            if($cat->nome === $categoria) {
+                $posicoes = Posicao::where('categoria_id', $cat->id)->get();
+            }
+        }
+        if($posicoes) {
+            return $posicoes;
+        } else {
+            return false;
+        }
+    }
+
 }
