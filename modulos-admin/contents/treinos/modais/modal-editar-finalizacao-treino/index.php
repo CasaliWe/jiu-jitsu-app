@@ -63,7 +63,7 @@
 
 
 <script>
-  // func para buscar e inserir as posições com ooptions
+  // func para buscar e inserir as posições como options
   async function buscarPosicoes() {
       var categoria = document.getElementById('categoria_finalizacao').value;
       if(categoria === 'Guardeiro') {

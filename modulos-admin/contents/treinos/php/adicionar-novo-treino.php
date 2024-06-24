@@ -13,7 +13,6 @@ $data_treino = $_POST['data_treino'];
 // pegando as observações do treino e transformando em um array
 $observacoes = $_POST['observacoes_treino']; 
 $observacoes = explode(";\n* ", $observacoes); 
-$observacoes_json = json_encode($observacoes); 
 
 // pegando as imagens do treino
 $nomesArquivos = [];
@@ -32,13 +31,11 @@ if (isset($_FILES['img_treino'])) {
             $nomesArquivos[] = $nomeArquivo;
         }
     }
-}
-
-$nomesArquivos_json = json_encode($nomesArquivos); 
+} 
 
 
 // criando o treino
-$treino = TreinoRepository::createTreino($tipo_treino, $aula_treino, $dia_treino, $hora_treino, $data_treino, $observacoes_json, $nomesArquivos_json);
+$treino = TreinoRepository::createTreino($tipo_treino, $aula_treino, $dia_treino, $hora_treino, $data_treino, $observacoes, $nomesArquivos);
 if($treino) {
     header('Location: ../../../../treinos.php?create=true');
 } else {

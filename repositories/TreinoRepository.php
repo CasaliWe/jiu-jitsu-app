@@ -41,4 +41,40 @@ class TreinoRepository {
         }
     }
 
+    // buscar treino
+    public static function getTreino($id) {
+        $treino = Treino::where('treino_id', $id)->first();
+        if($treino) {
+            return $treino;
+        } else {
+            return false;
+        }
+    }
+
+
+    // remover imagem do treino
+    public static function deleteImgTreino($id, $imgName) {
+        $img_treino = Treino::where('treino_id', $id)->value('img_treino');
+
+        // Verifica se há apenas uma imagem no array
+        if (count($img_treino) <= 1) {
+            return false; 
+        }
+
+        // Encontra a chave da imagem a ser removida e a remove do array
+        $key = array_search($imgName, $img_treino);
+        if ($key !== false) {
+            unset($img_treino[$key]);
+        }
+
+        // Atualiza o registro diretamente com o novo valor de img_treino
+        $res = Treino::where('treino_id', $id)->update(['img_treino' => $img_treino]);
+
+        if($res) {
+            return $res;
+        } else {
+            return false;
+        }
+    }
+
 }

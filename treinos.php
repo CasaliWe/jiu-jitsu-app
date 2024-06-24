@@ -45,12 +45,20 @@
     <!-- MODAL AVISOS -->
 
     <!-- MODAL ADD TREINO -->
-    <?php include_once "modulos-admin/modal-treino/index.php"; ?>
+    <?php include_once "modulos-admin/contents/treinos/modais/modal-treino/index.php"; ?>
     <!-- MODAL ADD TREINO -->
 
+    <!-- MODAL EDITAR TREINO -->
+    <?php include_once "modulos-admin/contents/treinos/modais/modal-editar-treino/index.php"; ?>
+    <!-- MODAL EDITAR TREINO -->
+
     <!-- MODAL ADD FINALIZAÇÃO TREINO -->
-    <?php include_once "modulos-admin/modal-finalizacao-treino/index.php"; ?>
+    <?php include_once "modulos-admin/contents/treinos/modais/modal-finalizacao-treino/index.php"; ?>
     <!-- MODAL ADD FINALIZAÇÃO TREINO -->
+
+    <!-- MODAL EDITAR FINALIZAÇÃO TREINO -->
+    <?php include_once "modulos-admin/contents/treinos/modais/modal-editar-finalizacao-treino/index.php"; ?>
+    <!-- MODAL EDITAR FINALIZAÇÃO TREINO -->
 
 
     <!--BOOTSTRAP JS-->

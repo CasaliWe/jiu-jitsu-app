@@ -20,10 +20,10 @@
             $data_reduzida = date('d-m-Y', strtotime($treino['data_treino']));
 
             // pegando o nome das imagens do json
-            $imgs_treino = json_decode($treino['img_treino'], true);
+            $imgs_treino = $treino['img_treino'];
 
             // pegando as observações do treino
-            $obsJson = json_decode($treino['observacoes_treino'], true);
+            $obsJson = $treino['observacoes_treino'];
             $observacoes = explode(';', $obsJson[0]);
         ?>
 
@@ -48,7 +48,7 @@
                             <div class="dropdown ps-2 pe-0 ps-lg-3 pe-lg-1" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-ellipsis-v"></i>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a class="dropdown-item">Editar</a></li>
+                                    <li><a onclick="editarTreino('<?= $treino['treino_id']; ?>')" class="dropdown-item">Editar</a></li>
                                     <li><a class="dropdown-item" onclick="deletarTreino('<?= $treino['treino_id'] ?>')">Deletar</a></li>
                                 </ul>
                             </div>
@@ -122,10 +122,10 @@
                                                                     <h6 class="mb-2">Passo a passo:</h6>
 
                                                                     <?php 
-                                                                       $passos = json_decode($finalizacao['passo_a_passo'], true);
+                                                                       $passos = $finalizacao['passo_a_passo'];
 
                                                                        foreach ($passos as $passo) { ?>
-                                                                            <span class="mb-1"><?= $passo; ?></span>
+                                                                            <span class="mb-1 small"><?= $passo; ?></span>
                                                                        <?php } 
                                                                     ?>
                                                                 </div>
@@ -134,10 +134,10 @@
                                                                     <h6 class="mb-2">Observações:</h6>
 
                                                                     <?php 
-                                                                       $obs_finalizacao = json_decode($finalizacao['observacoes'], true);
+                                                                       $obs_finalizacao =$finalizacao['observacoes'];
 
                                                                        foreach ($obs_finalizacao as $obs) { ?>
-                                                                            <span class="mb-1">* <?= $obs; ?>;</span>
+                                                                            <span class="mb-1 small">* <?= $obs; ?>;</span>
                                                                        <?php } 
                                                                     ?>
                                                                 </div>

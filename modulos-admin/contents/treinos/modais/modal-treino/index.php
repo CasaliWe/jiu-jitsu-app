@@ -107,5 +107,23 @@
     }
     e.target.value = value;
   });
+
+
+  // verificando o numero de imagens adicionar no input
+  document.addEventListener("DOMContentLoaded", function() {
+      // Seleciona o input pelo seu ID
+      var input = document.getElementById("img_treino");
+
+      // Adiciona um ouvinte de evento para quando o valor do input mudar
+      input.addEventListener("change", function() {
+        // Verifica se o número de arquivos selecionados é maior que 3
+        if (this.files.length > 3) {
+          // Informa ao usuário que ele não pode selecionar mais de 3 arquivos
+          alert("Você pode selecionar no máximo 3 imagens.");
+          // Limpa os arquivos selecionados
+          this.value = "";
+        }
+      });
+  });
 </script>
 <!-- mask obervações -->
