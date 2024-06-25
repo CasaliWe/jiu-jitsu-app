@@ -39,9 +39,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // Adiciona um ouvinte de evento para quando o valor do input mudar
     input.addEventListener("change", function() {
       // Verifica se o número de arquivos selecionados é maior que 3
-      if (this.files.length > 3) {
+      if (this.files.length > 1) {
         // Informa ao usuário que ele não pode selecionar mais de 3 arquivos
-        alert("Você pode selecionar no máximo 3 imagens.");
+        alert("Você pode selecionar no máximo 1 imagens.");
         // Limpa os arquivos selecionados
         this.value = "";
       }

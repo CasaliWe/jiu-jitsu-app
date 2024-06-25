@@ -67,11 +67,34 @@ class TreinoRepository {
             unset($img_treino[$key]);
         }
 
+        $img_treino = array_values($img_treino);
+
         // Atualiza o registro diretamente com o novo valor de img_treino
         $res = Treino::where('treino_id', $id)->update(['img_treino' => $img_treino]);
 
         if($res) {
             return $res;
+        } else {
+            return false;
+        }
+    }
+
+    // buscar imagens do treino
+    public static function getImagensTreino($id) {
+        $img_treino = Treino::where('treino_id', $id)->value('img_treino');
+        if($img_treino) {
+            return $img_treino;
+        } else {
+            return false;
+        }
+    }
+
+    // atualizar treino
+    public static function updateTreino($id, $data) {
+        $res = Treino::where('treino_id', $id)->update($data);
+
+        if($res) {
+            return true;
         } else {
             return false;
         }

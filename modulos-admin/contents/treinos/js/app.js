@@ -32,6 +32,8 @@ async function editarTreino(id){
     const res = await fetch(`${base_url}/modulos-admin/contents/treinos/php/get-treino.php?id=${id}`)
     const dados = await res.json()
 
+    document.getElementById("treino_id_editar").value = dados.treino_id
+
     document.getElementById("aula_treino_editar").value = dados.aula_treino
     document.getElementById("data_treino_editar").value = dados.data_treino
     if(dados.dia_trieno == "Segunda Feira"){
@@ -102,5 +104,50 @@ async function editarTreino(id){
 
 function openModal() {
     var meuModal = new bootstrap.Modal(document.getElementById('modal-editar-treino'));
+    meuModal.show();
+}
+
+
+
+
+
+// abrir modal e editar finalização treino
+async function editarFinalizacao(id){
+    const res = await fetch(`${base_url}/modulos-admin/contents/treinos/php/get-finalizacao.php?id=${id}`)
+    const dados = await res.json()
+    document.getElementById("finalizacao_id_editar").value = dados.id
+    document.getElementById("finalizacao_editar").value = dados.nome
+
+    // adicionar passo a passo modal editar finalizacao;
+    let itens = dados.passo_a_passo
+    itens = itens.map(item => {
+        if (!item.endsWith(';')) {
+            item += '';
+        }
+        return item.trim();
+    });
+    itens = itens.filter(item => item);
+    let itensString = itens.join('\n');
+    document.getElementById("passo_a_passo_editar").value = itensString
+
+
+    // adicionar observacoes modal editar finalizacao;
+    let obsItems = dados.observacoes;
+    let formattedItems = obsItems.map(item => {
+        // Remove espaços em branco no início e no final
+        item = item.trim();
+        // Adiciona '*' no início e ';' no final de cada item
+        return `${item}`;
+    });
+    // Junta todos os itens em uma string, separados por quebra de linha
+    let finalString = formattedItems.join('\n');
+    // Atribui a string formatada ao valor do textarea
+    document.getElementById("obs_finalizacao_editar").value = finalString;
+
+    openModalEditarFinalizacao()
+}
+
+function openModalEditarFinalizacao() {
+    var meuModal = new bootstrap.Modal(document.getElementById('modal-editar-finalizacao'));
     meuModal.show();
 }

@@ -110,7 +110,7 @@
                                                             <div style="cursor: pointer;" class="dropdown ps-3 pe-1 ps-lg-3 pe-lg-3 d-flex justify-content-center" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                                                 <i class="fas fa-ellipsis-v fs-5"></i>
                                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                                    <li><a class="dropdown-item">Editar</a></li>
+                                                                    <li><a class="dropdown-item" onclick="editarFinalizacao('<?= $finalizacao['id'] ?>')">Editar</a></li>
                                                                     <li><a class="dropdown-item" onclick="deletarFinalizacao('<?= $finalizacao['id'] ?>')">Deletar</a></li>
                                                                 </ul>
                                                             </div>
@@ -137,7 +137,7 @@
                                                                        $obs_finalizacao =$finalizacao['observacoes'];
 
                                                                        foreach ($obs_finalizacao as $obs) { ?>
-                                                                            <span class="mb-1 small">* <?= $obs; ?>;</span>
+                                                                            <span class="mb-1 small"><?= $obs; ?></span>
                                                                        <?php } 
                                                                     ?>
                                                                 </div>

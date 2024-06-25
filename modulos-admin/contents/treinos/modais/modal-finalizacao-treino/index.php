@@ -133,14 +133,13 @@
   });
 
   document.getElementById('obs_finalizacao').addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') {
-        var value = e.target.value;
-      var asteriscos = (value.match(/\*/g) || []).length;
-      if (value.length === 1 && value[0] !== '*' && asteriscos < 5) {
-          e.target.value = '* ' + value;
-      } else if (value.slice(-1) === ';' && value.slice(-3) !== '* ;' && asteriscos < 5) {
-          e.target.value = value + '\n* ';
-      }
-      }
+    if (e.key === 'Enter') {
+          e.preventDefault(); 
+          var value = e.target.value;
+          var linhas = (value.match(/\n/g) || []).length;
+          if (value.slice(-1) !== ';' && value.slice(-3) !== (linhas + 1) + '- ' && linhas < 5) {
+              e.target.value = value + ';\n' + '*' + ' ';
+          }
+    }
   });
 </script>

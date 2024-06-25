@@ -12,24 +12,20 @@ $passo_a_passo = $_POST['passo-a-passo'];
 $obs_finalizacao = $_POST['obs_finalizacao'];
 
 // transformando passo a passo a passo e observações em json para salvar no banco
-$passos = explode("\n", $passo_a_passo);
-$obs = explode("\n", $obs_finalizacao);
+$passos = explode(";", $passo_a_passo);
+$obs = explode(";", $obs_finalizacao);
 
-$passos_array = [];
-foreach ($passos as $passo) {
-    $passos_array[] = trim($passo);
-}
+// Adiciona ';' no final de cada item, se necessário
+$passos = array_map(function($passo) {
+    return rtrim($passo) . ';';
+}, $passos);
 
-$obs_array = [];
-foreach ($obs as $ob) {
-    $obs_array[] = trim($ob, "*;\r");
-}
-
-$passo_a_passo_json = $passos_array;
-$obs_finalizacao_json = $obs_array;
+$obs = array_map(function($ob) {
+    return rtrim($ob) . ';';
+}, $obs);
 
 // salvando no banco
-$res = TecnicaRepository::createFinalizacao($treino_id, $categoria_finalizacao, $posicao_finalizacao, $finalizacao, $passo_a_passo_json, $obs_finalizacao_json);
+$res = TecnicaRepository::createFinalizacao($treino_id, $categoria_finalizacao, $posicao_finalizacao, $finalizacao, $passos, $obs);
 
 if($res) {
     header('Location: ../../../../treinos.php?create=true');

@@ -61,4 +61,25 @@ class TecnicaRepository {
         }
     }
 
+    // buscar tecnica por id
+    public static function getFinalizacao($id) {
+        $finalizacao = Finalizacao::where('id', $id)->first();
+        if($finalizacao) {
+            return $finalizacao;
+        } else {
+            return false;
+        }
+    }
+
+
+    // Atualiza a finalizacao
+    public static function updateFinalizacao($id, $finalizacao) {
+        $finalizacao = Finalizacao::where('id', $id)->update($finalizacao);
+        if($finalizacao) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

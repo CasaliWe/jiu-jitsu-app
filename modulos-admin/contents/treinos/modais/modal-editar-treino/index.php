@@ -12,6 +12,8 @@
       </div>
       <form onsubmit="loading()" action="modulos-admin/contents/treinos/php/editar-treino.php" method="post" enctype="multipart/form-data">
           <div class="modal-body">
+
+            <input type="hidden" id="treino_id_editar" name="treino_id">
           
             <div class='mb-3'>
               <label for='tipo_treino_editar' class="small">Tipo do treino*</label>
@@ -42,7 +44,7 @@
             <div class='mb-3'>
               <label for='hora_treino_editar' class="small">Hora do treino*</label>
               <select name="hora_treino_editar" id="hora_treino_editar" class="form-select">
-                 <option value="06:30" id="6:30">06:30 hrs</option>
+                 <option value="06:30" id="06:30">06:30 hrs</option>
                  <option value="12:00" id="12:00">12:00 hrs</option>
                  <option value="19:30" id="19:30">19:30 hrs</option>
                  <option value="21:00" id="21:00">21:00 hrs</option>
