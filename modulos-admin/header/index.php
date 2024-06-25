@@ -18,6 +18,11 @@
 <!-- FAVICON -->
 <link rel="icon" href="<?php echo $base_url ?>assets/imagens/favicon-admin/favicon-admin.png">
 
+<!-- MANIFEST -->
+<link rel="manifest" href="<?php echo $base_url ?>/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
 <!-- TEXT AREA PERSONALIZADO -->
 <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
 
