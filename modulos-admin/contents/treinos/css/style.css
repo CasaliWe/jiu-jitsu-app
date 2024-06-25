@@ -1,5 +1,5 @@
 .container-img-treino{
-    width: 100%;
+    width: 100% !important;
     height: 200px;
 }
 .container-img-treino img{

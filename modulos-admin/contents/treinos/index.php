@@ -29,38 +29,59 @@
 
         <div class="my-4 item-acordion accordion">
             <div class="accordion-item">
-                <h2 class="accordion-header">
+                <h2 class="accordion-header d-flex justify-content-between align-items-center">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treino-<?php echo $key ?>" aria-expanded="false" aria-controls="treino-<?php echo $key ?>">
-                        <div class="d-flex align-items-center justify-content-between w-100 px-2">
-                            <div class="d-flex flex-column text-start">
-                                <span class="mb-1 small fw-semibold"><?= $treino['tipo_treino']; ?></span>
-                                <span class="small"> <span class="text-primary fw-semibold"><?= $treino['aula_treino']; ?></span> aula </span>
+                        <div class="row w-100 px-2">
+                            <div class="col-6 col-lg-5 d-flex flex-column text-start">
+                                <span class="d-none d-lg-block mb-1 small fw-semibold"><?= $treino['tipo_treino']; ?></span>
+                                <span class="d-none d-lg-block small"> <span class="text-primary fw-semibold"><?= $treino['aula_treino']; ?></span> aula </span>
+
+                                <!-- mobile -->
+                                <span style="font-size: 10px;" class="d-block d-lg-none mb-1 fw-semibold"><?= $treino['tipo_treino']; ?></span>
+                                <span style="font-size: 10px;" class="d-block d-lg-none"> <span class="text-primary fw-semibold"><?= $treino['aula_treino']; ?></span> aula </span>
+                                <!-- mobile -->
                             </div>
 
-                            <div class="d-flex flex-column text-center">
+                            <div class="col-6 col-lg-4 d-flex flex-column text-center">
                                 <span class="mb-1 small d-none d-lg-block"><?= $treino['dia_treino']; ?> - <?= $treino['hora_treino']; ?> hrs</span>
                                 <span class="small d-none d-lg-block"><?= $data_completa; ?></span>
 
-                                <span class="mb-1 small d-block d-lg-none"><?= substr($treino['dia_treino'], 0, 3); ?> - <?= $treino['hora_treino']; ?> hrs</span>
-                                <span class="small d-block d-lg-none"><?= $data_reduzida; ?></span>
-                            </div>
-
-                            <div class="dropdown ps-2 pe-0 ps-lg-3 pe-lg-1" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-ellipsis-v"></i>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a onclick="editarTreino('<?= $treino['treino_id']; ?>')" class="dropdown-item">Editar</a></li>
-                                    <li><a class="dropdown-item" onclick="deletarTreino('<?= $treino['treino_id'] ?>')">Deletar</a></li>
-                                </ul>
+                                <!-- mobile -->
+                                <span style="font-size: 10px;" class="mb-1 d-block d-lg-none"><?= substr($treino['dia_treino'], 0, 3); ?> - <?= $treino['hora_treino']; ?> hrs</span>
+                                <span style="font-size: 10px;" class="d-block d-lg-none"><?= $data_reduzida; ?></span>
+                                <!-- mobile -->
                             </div>
                         </div>
                     </button>
+
+                    <div style="cursor: pointer;" class="dropdown px-2 me-2 me-lg-4" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-ellipsis-v"></i>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a onclick="editarTreino('<?= $treino['treino_id']; ?>')" class="dropdown-item">Editar</a></li>
+                            <li><a class="dropdown-item" onclick="deletarTreino('<?= $treino['treino_id'] ?>')">Deletar</a></li>
+                        </ul>
+                    </div>
                 </h2>
                 <div id="treino-<?php echo $key ?>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
         
                         <div class="row my-3">
-                            <div class="mb-4 col-12 col-lg-6 col-xxl-5">
-                                <div class="container-img-treino"> <img src="<?= $base_url; ?>assets/imagens/site-admin/treinos/<?= $imgs_treino[0] ?>"> </div>
+                            <div id="slider" class="mb-4 col-12 col-lg-6 col-xxl-5">
+                                
+                                <!-- Swiper -->
+                                <div class="swiper mySwiper">
+                                    <div class="swiper-wrapper">
+                                        <!-- Slides -->
+                                         <?php foreach ($imgs_treino as $img) { ?>     
+                                            <div onclick="abrirModalPreviaImgsTreino('<?= $img; ?>')" style="cursor: pointer;" class="swiper-slide container-img-treino"> <img src="<?= $base_url; ?>assets/imagens/site-admin/treinos/<?= $img ?>"> </div>
+                                         <?php } ?>
+                                        <!-- Slides -->
+                                    </div>
+                                    <!-- paginação -->
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                                <!-- Swiper -->
+
                             </div>
 
                             <div class="mb-4 col-12 col-lg-6 col-xxl-3 px-3">
@@ -177,6 +198,7 @@
     </div>
 </section>
 <!-- TREINOS -->
+
 
 <script src="<?php echo $base_url ?>modulos-admin/contents/treinos/js/app.js"></script>
 

@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // remover imagem treino modal editar
 async function removerImgTreinoModalEditar(refContainerImg, id, imgName){
-    const res = await fetch(`${base_url}/modulos-admin/contents/treinos/php/remover-img-treino.php?id=${id}&imgName=${imgName}`)
+    const res = await fetch(`${base_url}/modulos-admin/contents/treinos/php/deletar-img-treino.php?id=${id}&imgName=${imgName}`)
     const data = await res.json()
     if(data.status == 'success'){
         document.getElementById(refContainerImg).remove()

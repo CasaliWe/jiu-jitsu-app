@@ -32,8 +32,20 @@ class TreinoRepository {
 
     //deletar um treino
     public static function delete($id) {
+        // buscando as imagens do treino
+        $img_treino = Treino::where('treino_id', $id)->value('img_treino');
+
+        // deletando as imagens do treino
         $res = Treino::where('treino_id', $id)->delete();
 
+        // removendo as imagens do servidor
+        if($img_treino) {
+            foreach($img_treino as $img) {
+                unlink(__DIR__ . '/../assets/imagens/site-admin/treinos/' . $img);
+            }
+        }
+
+        // respondendo a requisição
         if($res) {
             return true;
         } else {
@@ -72,6 +84,9 @@ class TreinoRepository {
         // Atualiza o registro diretamente com o novo valor de img_treino
         $res = Treino::where('treino_id', $id)->update(['img_treino' => $img_treino]);
 
+        // removendo as imagem do servidor
+        unlink(__DIR__ . '/../assets/imagens/site-admin/treinos/' . $imgName);
+
         if($res) {
             return $res;
         } else {
@@ -95,6 +110,17 @@ class TreinoRepository {
 
         if($res) {
             return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    // buscar imagens treino
+    public static function getImgsTreino($id) {
+        $res = Treino::where('treino_id', $id)->value('img_treino');
+        if($res) {
+            return $res;
         } else {
             return false;
         }

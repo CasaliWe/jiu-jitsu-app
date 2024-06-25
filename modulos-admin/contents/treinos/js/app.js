@@ -151,3 +151,42 @@ function openModalEditarFinalizacao() {
     var meuModal = new bootstrap.Modal(document.getElementById('modal-editar-finalizacao'));
     meuModal.show();
 }
+
+
+
+
+// slider de imagens treino previa
+var mySwiper = new Swiper('.mySwiper', {
+    // Opções do Swiper
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    effect: 'fade',
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false, 
+    },
+    speed: 1000,
+});
+
+
+
+// abrir modal e inserir imagens full
+function abrirModalPreviaImgsTreino(img){
+    document.getElementById("imagem-full").src = `${base_url}/assets/imagens/site-admin/treinos/${img}`
+
+    openModalImagensFull();
+}
+
+function openModalImagensFull() {
+    var meuModal = new bootstrap.Modal(document.getElementById('modal-imagens-full'));
+    meuModal.show();
+}

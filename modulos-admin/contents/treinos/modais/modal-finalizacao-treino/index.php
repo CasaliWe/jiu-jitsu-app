@@ -63,11 +63,11 @@
 
 
 <script>
-  // func para buscar e inserir as posições com ooptions
+  // func para buscar e inserir as posições como options
   async function buscarPosicoes() {
       var categoria = document.getElementById('categoria_finalizacao').value;
       if(categoria === 'Guardeiro') {
-          const res = await fetch('modulos-admin/contents/treinos/php/buscar-posicoes.php?categoria=Guardeiro');
+          const res = await fetch('modulos-admin/contents/treinos/php/get-posicoes.php?categoria=Guardeiro');
           const data = await res.json();
           
           document.getElementById("existentes").innerHTML = '';
@@ -78,7 +78,7 @@
             `
           });
       } else {
-          const res = await fetch('modulos-admin/contents/treinos/php/buscar-posicoes.php?categoria=Passador');
+          const res = await fetch('modulos-admin/contents/treinos/php/get-posicoes.php?categoria=Passador');
           const data = await res.json();
 
           document.getElementById("existentes").innerHTML = '';

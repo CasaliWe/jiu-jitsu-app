@@ -33,5 +33,11 @@
 <!-- GLOBAL JS -->
 <script src="<?php echo $base_url ?>assets/js-global/app.js"></script>
 
+<!-- SWIPER CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+<!-- SWIPER JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
 
 <title><?php echo $title_site ?></title>
