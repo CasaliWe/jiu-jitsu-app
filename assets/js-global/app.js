@@ -1,4 +1,5 @@
 var base_url = "http://localhost/jiu-jitsu"
+//var base_url = "https://manudesign.com.br"
 
 
 // ativa o loading
