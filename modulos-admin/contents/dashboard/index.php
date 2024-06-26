@@ -50,12 +50,12 @@
     <form action="modulos-admin/contents/dashboard/php/atualizar-imagem-user.php" class="mt-5 row pb-4 border-bottom" enctype="multipart/form-data" method="post">
       <input type="hidden" name="identificador" value="<?= $_COOKIE['identificador']; ?>">  
      
-       <div class='mb-3 col-9 col-lg-10'>
+       <div class='mb-3 col-12 col-lg-10'>
           <label for='imagem-perfil' class="small">Foto de perfil*</label>
           <input type='file' id='imagem-perfil' name='imagem-perfil' class='form-control' required>
         </div>
 
-        <div class="mb-1 col-3 col-lg-2 d-flex align-items-center justify-content-end">
+        <div class="my-3 my-lg-0 col-12 col-lg-2 d-flex align-items-center justify-content-center justify-content-lg-end">
           <div class="container-preview-imagem-perfil">
             <img src="<?= $base_url; ?>assets/imagens/site-admin/ids/<?= $img ? $img : 'img-id.jpg' ?>" id="preview-imagem-perfil">
           </div>
