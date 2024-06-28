@@ -144,6 +144,9 @@ async function editarFinalizacao(id){
     // Atribui a string formatada ao valor do textarea
     document.getElementById("obs_finalizacao_editar").value = finalString;
 
+    document.getElementById("video_editar").value = dados.video
+    document.getElementById("estrela_editar").value = dados.estrela
+
     openModalEditarFinalizacao()
 }
 

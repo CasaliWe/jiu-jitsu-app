@@ -40,8 +40,8 @@
           </select>
         </div>
 
-        <div class="col-12 col-lg-3 mb-4">
-            <button type="submit" class="mt-3 w-100 btn btn-success btn-sm">ATUALIZAR</button>
+        <div class="col-12 col-lg-3 mb-4 text-center text-lg-start">
+            <button type="submit" class="mt-3 px-5 btn btn-success btn-sm">ATUALIZAR</button>
         </div>
     </form>
 
@@ -61,8 +61,8 @@
           </div>
         </div>
 
-        <div class="col-12 col-lg-3 mb-4">
-            <button type="submit" class="mt-3 w-100 btn btn-success btn-sm">ATUALIZAR</button>
+        <div class="col-12 col-lg-3 mb-4 text-center text-lg-start">
+            <button type="submit" class="mt-3 px-5 btn btn-success btn-sm">ATUALIZAR</button>
         </div>
     </form>
 
@@ -85,8 +85,8 @@
           <input type='password' id='confirm-senha' name='confirm-senha' class='form-control' required>
         </div>
 
-        <div class="col-12 col-lg-3 mb-4">
-            <button type="submit" class="mt-3 w-100 btn btn-success btn-sm">ATUALIZAR</button>
+        <div class="col-12 col-lg-3 mb-4 text-center text-lg-start">
+            <button type="submit" class="mt-3 px-5 btn btn-success btn-sm">ATUALIZAR</button>
         </div>
     </form>
 </section>

@@ -49,6 +49,16 @@
                 <textarea class="form-control" name="obs_finalizacao" required rows="5" id="obs_finalizacao"></textarea>
               </div>
 
+              <div class='mb-3'>
+                <label for='estrela' class="small">Avaliação (de 1 até 5 estrelas)*</label>
+                <input type="number" required name="estrela" id="estrela" class="form-control" min="1" max="5">
+              </div>
+
+              <div class='mb-3'>
+                <label for='video' class="small">Link Vídeo OPCIONAL (instagram | youtube)*</label>
+                <input type="text" name="video" id="video" class="form-control">
+              </div>
+
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>

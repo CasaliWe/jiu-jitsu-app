@@ -27,6 +27,16 @@
                 <textarea class="form-control" name="obs_finalizacao_editar" required rows="5" id="obs_finalizacao_editar"></textarea>
               </div>
 
+              <div class='mb-3'>
+                <label for='estrela_editar' class="small">Avaliação (de 1 até 5 estrelas)*</label>
+                <input type="number" required name="estrela_editar" id="estrela_editar" class="form-control" min="1" max="5">
+              </div>
+
+              <div class='mb-3'>
+                <label for='video_editar' class="small">Url Vídeo OPCIONAL (apenas instagram | youtube)*</label>
+                <input type="text" name="video_editar" id="video_editar" class="form-control">
+              </div>
+
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>

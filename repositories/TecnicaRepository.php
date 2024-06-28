@@ -8,7 +8,7 @@ use Models\Finalizacao;
 class TecnicaRepository {
 
     // Cria toda a tecnica com Categoria, Posicao e Finalizacao
-    public static function createFinalizacao($treino_id, $categoria_finalizacao, $posicao_finalizacao, $finalizacao, $passo_a_passo_json, $obs_finalizacao_json) {
+    public static function createFinalizacao($treino_id, $categoria_finalizacao, $posicao_finalizacao, $finalizacao, $passo_a_passo_json, $obs_finalizacao_json, $video, $estrela, $plataforma) {
         $categoria = Categoria::firstOrCreate([
             'nome' => $categoria_finalizacao,
             'user_identificador' => $_COOKIE['identificador'],
@@ -24,7 +24,10 @@ class TecnicaRepository {
             'nome' => $finalizacao,
             'passo_a_passo' => $passo_a_passo_json,
             'observacoes' => $obs_finalizacao_json,
-            'posicao_id' => $posicao->id
+            'posicao_id' => $posicao->id,
+            'video' => $video,
+            'estrela' => $estrela,
+            'plataforma' => $plataforma
         ]);
 
         if($finalizacao) {

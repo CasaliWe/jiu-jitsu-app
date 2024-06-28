@@ -85,7 +85,7 @@
                             </div>
 
                             <div class="mb-4 col-12 col-lg-6 col-xxl-3 px-3">
-                                <h6 class="fw-semibold mb-3">Observações gerais:</h6>
+                                <h6 class="fw-semibold mb-3">Observações do treino:</h6>
 
                                 <div class="small">
                                     <?php foreach ($observacoes as $obs) { ?>
@@ -125,7 +125,18 @@
                                                     <div class="accordion-item">
                                                         <h2 class="accordion-header d-flex px-2 align-items-center justify-content-between">
                                                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#finalizacao-<?php echo $finalizacao['id'] ?>" aria-expanded="false" aria-controls="finalizacao-<?php echo $finalizacao['id'] ?>">
-                                                                <?= $finalizacao['nome']; ?>
+                                                                <div class="d-flex flex-column">
+                                                                    <div class="mb-1">
+                                                                        <?php for ($i = 0; $i < 5; $i++) {
+                                                                            if ($i < $finalizacao['estrela']) {
+                                                                                echo '<i style="font-size: .5em;" class="text-danger fas fa-star"></i>';
+                                                                            } else {
+                                                                                echo '<i style="font-size: .5em;" class="text-dark fas fa-star"></i>';
+                                                                            }
+                                                                        } ?>
+                                                                    </div>
+                                                                    <?= $finalizacao['nome']; ?>
+                                                                </div>
                                                             </button>
 
                                                             <div style="cursor: pointer;" class="dropdown ps-3 pe-1 ps-lg-3 pe-lg-3 d-flex justify-content-center" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
@@ -139,7 +150,7 @@
                                                         <div id="finalizacao-<?php echo $finalizacao['id'] ?>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                                             <div class="accordion-body">
                                                 
-                                                                <div class="d-flex flex-column mb-3">
+                                                                <div class="border-bottom pb-2 d-flex flex-column mb-3">
                                                                     <h6 class="mb-2">Passo a passo:</h6>
 
                                                                     <?php 
@@ -162,7 +173,12 @@
                                                                        <?php } 
                                                                     ?>
                                                                 </div>
-                                                
+
+                                                                <?php if($finalizacao['plataforma'] == 'youtube') { ?>
+                                                                    <iframe class="_video-finalizacao" src="https://www.youtube.com/embed/<?= $finalizacao['video'] ?>?si=yGQPPvOUJsg-au7S" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                                                <?php }else if($finalizacao['plataforma'] == 'instagram'){ ?>
+                                                                    <iframe class="_video-finalizacao_insta" src="https://www.instagram.com/p/<?= $finalizacao['video'] ?>/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                                                                <?php } ?>
                                                             </div>
                                                         </div>
                                                     </div>
