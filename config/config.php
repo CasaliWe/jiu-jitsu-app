@@ -2,7 +2,6 @@
 
 // ***********BASE URL***********
 $base_url = "http://localhost/jiu-jitsu/";
-//$base_url = "https://manudesign.com.br/";
 
 
 // ***********CONFIGURAÇÕES GERAIS DO ADMIN***********
