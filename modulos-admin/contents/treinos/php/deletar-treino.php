@@ -3,13 +3,13 @@
 require '../../../../config/bootstrap.php';
 use Repositories\TreinoRepository;
 
-$id = $_GET['id'];
+$id = $_POST['id_deletar'];
 
 //deletando treino
 $res = TreinoRepository::delete($id);
 
 if($res){
-    echo json_encode(['status' => 'success', 'message' => 'Treino deletado com sucesso!']);
+    header('Location: ../../../../treinos.php?delete=true');
 }else{
-    echo json_encode(['status' => 'error', 'message' => 'Erro ao deletar treino!']);
+    header('Location: ../../../../treinos.php?error=true');
 }

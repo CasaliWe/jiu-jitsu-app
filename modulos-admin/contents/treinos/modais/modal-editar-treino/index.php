@@ -25,7 +25,8 @@
 
             <div class='mb-3'>
               <label for='aula_treino_editar' class="small">Número da aula*</label>
-              <input type='type' id='aula_treino_editar' name='aula_treino_editar' placeholder='Ex: 12º' class='form-control' required>
+              <input type="hidden" name="aula_treino_editar" required id="aula_treino_editar">
+              <input type='type' id="aula_treino_editar_show" disabled class='form-control'>
             </div>
 
             <div class='mb-3'>

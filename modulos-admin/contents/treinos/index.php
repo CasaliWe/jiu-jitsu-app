@@ -34,11 +34,11 @@
                         <div class="row w-100 px-2">
                             <div class="col-6 col-lg-5 d-flex flex-column text-start">
                                 <span class="d-none d-lg-block mb-1 small fw-semibold"><?= $treino['tipo_treino']; ?></span>
-                                <span class="d-none d-lg-block small"> <span class="text-primary fw-semibold"><?= $treino['aula_treino']; ?></span> aula </span>
+                                <span class="d-none d-lg-block small"> <span class="text-primary fw-semibold"><?= $treino['aula_treino']; ?>ª</span> aula </span>
 
                                 <!-- mobile -->
                                 <span style="font-size: 10px;" class="d-block d-lg-none mb-1 fw-semibold"><?= $treino['tipo_treino']; ?></span>
-                                <span style="font-size: 10px;" class="d-block d-lg-none"> <span class="text-primary fw-semibold"><?= $treino['aula_treino']; ?></span> aula </span>
+                                <span style="font-size: 10px;" class="d-block d-lg-none"> <span class="text-primary fw-semibold"><?= $treino['aula_treino']; ?>ª</span> aula </span>
                                 <!-- mobile -->
                             </div>
 
@@ -177,7 +177,7 @@
                                                                 <?php if($finalizacao['plataforma'] == 'youtube') { ?>
                                                                     <iframe class="_video-finalizacao" src="https://www.youtube.com/embed/<?= $finalizacao['video'] ?>?si=yGQPPvOUJsg-au7S" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                                                                 <?php }else if($finalizacao['plataforma'] == 'instagram'){ ?>
-                                                                    <iframe class="_video-finalizacao_insta" src="https://www.instagram.com/p/<?= $finalizacao['video'] ?>/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                                                                    <a class="mt-4 mb-2 btn btn-sm btn-danger" href="<?= $finalizacao['video'] ?>" target="_blank"><i class="fab fa-instagram"></i> Vídeo da finalização</a>
                                                                 <?php } ?>
                                                             </div>
                                                         </div>

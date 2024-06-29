@@ -5,26 +5,23 @@ function adicionarIdModalAddFinalizacao(id){
 
 // deletar treino 
 async function deletarTreino(id){
-    loading();
-    const res = await fetch(`${base_url}/modulos-admin/contents/treinos/php/deletar-treino.php?id=${id}`)
-    const data = await res.json()
-    if(data.status){
-        let url = new URL(window.location.href);
-        url.searchParams.append('delete', 'true');
-        window.location.href = url;
-    }
+    document.getElementById("titulo-excluir").textContent = 'esse treino?'
+    document.getElementById("id_deletar").value = id
+    document.getElementById("form-excluir").action = 'modulos-admin/contents/treinos/php/deletar-treino.php'
+    abrirModalExcluir()
 }
 
 // deletar finalização treino 
 async function deletarFinalizacao(id){
-    loading();
-    const res = await fetch(`${base_url}/modulos-admin/contents/treinos/php/deletar-finalizacao-treino.php?id=${id}`)
-    const data = await res.json()
-    if(data.status){
-        let url = new URL(window.location.href);
-        url.searchParams.append('delete', 'true');
-        window.location.href = url;
-    }
+    document.getElementById("titulo-excluir").textContent = 'essa finalização?'
+    document.getElementById("id_deletar").value = id
+    document.getElementById("form-excluir").action = 'modulos-admin/contents/treinos/php/deletar-finalizacao-treino.php'
+    abrirModalExcluir()
+}
+
+function abrirModalExcluir() {
+    var meuModal = new bootstrap.Modal(document.getElementById('modal-excluir'));
+    meuModal.show();
 }
 
 // abrir modal e inserir dados para editar treino
@@ -35,6 +32,7 @@ async function editarTreino(id){
     document.getElementById("treino_id_editar").value = dados.treino_id
 
     document.getElementById("aula_treino_editar").value = dados.aula_treino
+    document.getElementById("aula_treino_editar_show").value = `${dados.aula_treino} ª`
     document.getElementById("data_treino_editar").value = dados.data_treino
     if(dados.dia_trieno == "Segunda Feira"){
         document.getElementById("seg").selected = true

@@ -13,7 +13,9 @@ class UserRepository {
 
     // Busca um usuário pelo identificador
     public static function getUser($identificador) {
-        $user = User::with('treinos.categorias.posicoes.finalizacoes')->where('identificador', $identificador)->first();
+        $user = User::with(['treinos' => function($query) {
+            $query->orderBy('created_at', 'desc');
+        }, 'treinos.categorias.posicoes.finalizacoes'])->where('identificador', $identificador)->first();
 
         if($user){
             return $user;

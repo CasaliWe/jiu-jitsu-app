@@ -2,6 +2,7 @@
 
 // ***********BASE URL***********
 $base_url = "http://localhost/jiu-jitsu/";
+//$base_url = "https://bjjapp.site/";
 
 
 // ***********CONFIGURAÇÕES GERAIS DO ADMIN***********

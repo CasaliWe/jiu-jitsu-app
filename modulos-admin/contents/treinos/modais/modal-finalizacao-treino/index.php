@@ -55,7 +55,7 @@
               </div>
 
               <div class='mb-3'>
-                <label for='video' class="small">Link Vídeo OPCIONAL (instagram | youtube)*</label>
+                <label for='video' class="small">Link Vídeo OPCIONAL (apenas <strong>instagram</strong> ou <strong>youtube</strong>)*</label>
                 <input type="text" name="video" id="video" class="form-control">
               </div>
 

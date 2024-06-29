@@ -40,7 +40,7 @@ function extrairIdEPlataformaVideo($url) {
             // Retorna o ID e a plataforma se encontrado
             // Para 'youtube_shorts', ajusta a plataforma para 'youtube'
             $plataformaAjustada = $plataforma === 'youtube_shorts' ? 'youtube' : $plataforma;
-            return ['id' => $matches[1], 'plataforma' => $plataformaAjustada];
+            return ['id' => $url, 'plataforma' => $plataformaAjustada];
         }
     }
 

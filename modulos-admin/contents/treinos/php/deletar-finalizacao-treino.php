@@ -3,13 +3,13 @@
 require '../../../../config/bootstrap.php';
 use Repositories\TecnicaRepository;
 
-$id = $_GET['id'];
+$id = $_POST['id_deletar'];
 
 //deletando treino
 $res = TecnicaRepository::deleteFinalizacao($id);
 
 if($res){
-    echo json_encode(['status' => 'success', 'message' => 'Finalização deletada com sucesso!']);
+    header('Location: ../../../../treinos.php?delete=true');
 }else{
-    echo json_encode(['status' => 'error', 'message' => 'Erro ao deletar Finalização!']);
+    header('Location: ../../../../treinos.php?error=true');
 }

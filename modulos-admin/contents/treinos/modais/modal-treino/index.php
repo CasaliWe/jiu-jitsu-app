@@ -19,7 +19,8 @@
 
             <div class='mb-3'>
               <label for='aula_treino' class="small">Número da aula*</label>
-              <input type='type' id='aula_treino' name='aula_treino' placeholder='Ex: 12º' class='form-control' required>
+              <input type="hidden" name="aula_treino" required value="<?= count($treinos) +1 ?>">
+              <input type='type' disabled value="<?= count($treinos) > 0 ? (int)$treinos[0]['aula_treino'] +1 : 1 ?>ª" id='aula_treino' class='form-control'>
             </div>
 
             <div class='mb-3'>

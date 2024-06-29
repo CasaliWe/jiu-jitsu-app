@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Treino extends Model {
     protected $table = 'treino';
     protected $fillable = ['tipo_treino', 'aula_treino', 'hora_treino', 'dia_treino', 'data_treino', 'img_treino', 'observacoes_treino', 'user_identificador'];
-    public $timestamps = false;
+    public $timestamps = true;
     protected $casts = ['observacoes_treino' => 'array', 'img_treino' => 'array'];
 
     public function categorias()

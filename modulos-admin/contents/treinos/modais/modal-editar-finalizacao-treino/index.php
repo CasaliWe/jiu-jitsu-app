@@ -33,7 +33,7 @@
               </div>
 
               <div class='mb-3'>
-                <label for='video_editar' class="small">Url Vídeo OPCIONAL (apenas instagram | youtube)*</label>
+                <label for='video_editar' class="small">Url Vídeo OPCIONAL (apenas <strong>instagram</strong> ou <strong>youtube</strong>)*</label>
                 <input type="text" name="video_editar" id="video_editar" class="form-control">
               </div>
 
