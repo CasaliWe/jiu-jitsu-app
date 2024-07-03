@@ -41,6 +41,9 @@
               <select name="hora_treino" id="hora_treino" class="form-select">
                  <option value="06:30">06:30 hrs</option>
                  <option value="12:00">12:00 hrs</option>
+                 <option value="14:00">14:00 hrs</option>
+                 <option value="15:00">15:00 hrs</option>
+                 <option value="16:00">16:00 hrs</option>
                  <option value="19:30" selected>19:30 hrs</option>
                  <option value="21:00">21:00 hrs</option>
                  <option value="22:00">22:00 hrs</option>
@@ -60,7 +63,7 @@
             <div class='mb-3'>
               <label for='observacoes_treino' class="small">Observações do treino*</label> <br>
               <small>( Separe as observações por ponto e vírgula " ; " ou "enter")</small>
-              <textarea style="font-size: 12px;" id='observacoes_treino' rows="5" name='observacoes_treino' class='form-control' required></textarea>
+              <textarea style="font-size: 12px;" id='observacoes_treino' rows="5" name='observacoes_treino' class='form-control'></textarea>
             </div>
 
           </div>

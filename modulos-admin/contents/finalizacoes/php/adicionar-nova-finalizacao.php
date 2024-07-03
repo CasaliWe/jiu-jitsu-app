@@ -4,7 +4,7 @@ require '../../../../config/bootstrap.php';
 use Repositories\TecnicaRepository;
 
 // pegando os dados
-$treino_id = $_POST['treino_id'];
+$treino_id = null; // como é criado sem um treino, não tem treino_id
 $categoria_finalizacao = $_POST['categoria_finalizacao'];
 $posicao_finalizacao = $_POST['posicao_finalizacao'];
 $finalizacao = $_POST['finalizacao'];
@@ -40,7 +40,7 @@ if(strpos($video, 'youtube') !== false){
 $res = TecnicaRepository::createFinalizacao($treino_id, $categoria_finalizacao, $posicao_finalizacao, $finalizacao, $passos, $obs, $video, $estrela, $plataforma);
 
 if($res) {
-    header('Location: ../../../../treinos.php?create=true');
+    header('Location: ../../../../finalizacoes.php?create=true');
 } else {
-    header('Location: ../../../../treinos.php?error=true');
+    header('Location: ../../../../finalizacoes.php?error=true');
 }

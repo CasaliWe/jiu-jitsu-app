@@ -175,7 +175,7 @@
                                                                 </div>
 
                                                                 <?php if($finalizacao['plataforma'] == 'youtube') { ?>
-                                                                    <iframe class="_video-finalizacao" src="https://www.youtube.com/embed/<?= $finalizacao['video'] ?>?si=yGQPPvOUJsg-au7S" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                                                    <a class="mt-4 mb-2 btn btn-sm btn-danger" href="<?= $finalizacao['video'] ?>" target="_blank"><i class="fab fa-youtube"></i> Vídeo da finalização</a>
                                                                 <?php }else if($finalizacao['plataforma'] == 'instagram'){ ?>
                                                                     <a class="mt-4 mb-2 btn btn-sm btn-danger" href="<?= $finalizacao['video'] ?>" target="_blank"><i class="fab fa-instagram"></i> Vídeo da finalização</a>
                                                                 <?php } ?>

@@ -47,6 +47,9 @@
               <select name="hora_treino_editar" id="hora_treino_editar" class="form-select">
                  <option value="06:30" id="06:30">06:30 hrs</option>
                  <option value="12:00" id="12:00">12:00 hrs</option>
+                 <option value="14:00" id="14:00">14:00 hrs</option>
+                 <option value="15:00" id="15:00">15:00 hrs</option>
+                 <option value="16:00" id="16:00">16:00 hrs</option>
                  <option value="19:30" id="19:30">19:30 hrs</option>
                  <option value="21:00" id="21:00">21:00 hrs</option>
                  <option value="22:00" id="22:00">22:00 hrs</option>

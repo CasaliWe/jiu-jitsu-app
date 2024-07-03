@@ -58,8 +58,8 @@ if($video != '') {
 }
 
 if($finalizacao) {
-    header('Location: ../../../../treinos.php?success=true');
+    header('Location: ../../../../finalizacoes.php?success=true');
 } else {
-    header('Location: ../../../../treinos.php?error=true');
+    header('Location: ../../../../finalizacoes.php?error=true');
 }
 

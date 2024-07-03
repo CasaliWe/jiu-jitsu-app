@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Categoria extends Model {
     protected $table = 'categorias';
     protected $fillable = ['nome', 'user_identificador', 'treino_id'];
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function treinos()
     {

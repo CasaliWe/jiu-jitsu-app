@@ -11,8 +11,13 @@ $hora_treino = $_POST['hora_treino'];
 $data_treino = $_POST['data_treino'];
 
 // pegando as observações do treino e transformando em um array
-$observacoes = $_POST['observacoes_treino']; 
-$observacoes = explode(";\n* ", $observacoes); 
+if($_POST['observacoes_treino'] == '') {
+    $observacoes = '* Sem observações para esse treino';
+    $observacoes = explode(";\n* ", $observacoes);
+}else{
+    $observacoes = $_POST['observacoes_treino'] ?? '* Sem observações para esse treino'; 
+    $observacoes = explode(";\n* ", $observacoes);
+} 
 
 // pegando as imagens do treino
 $nomesArquivos = [];

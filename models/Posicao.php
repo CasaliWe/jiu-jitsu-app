@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Posicao extends Model {
     protected $table = 'posicoes';
-    protected $fillable = ['nome', 'categoria_id'];
-    public $timestamps = false;
+    protected $fillable = ['nome', 'categoria_id', 'user_identificador'];
+    public $timestamps = true;
 
     public function categorias()
     {

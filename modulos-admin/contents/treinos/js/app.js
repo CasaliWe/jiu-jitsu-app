@@ -34,19 +34,19 @@ async function editarTreino(id){
     document.getElementById("aula_treino_editar").value = dados.aula_treino
     document.getElementById("aula_treino_editar_show").value = `${dados.aula_treino} ª`
     document.getElementById("data_treino_editar").value = dados.data_treino
-    if(dados.dia_trieno == "Segunda Feira"){
+    if(dados.dia_treino == "Segunda Feira"){
         document.getElementById("seg").selected = true
-    } else if(dados.dia_trieno == "Terça Feira"){
+    } else if(dados.dia_treino == "Terça Feira"){
         document.getElementById("ter").selected = true
-    } else if(dados.dia_trieno == "Quarta Feira"){
+    } else if(dados.dia_treino == "Quarta Feira"){
         document.getElementById("qua").selected = true
-    } else if(dados.dia_trieno == "Quinta Feira"){ 
+    } else if(dados.dia_treino == "Quinta Feira"){ 
         document.getElementById("qui").selected = true
-    } else if(dados.dia_trieno == "Sexta Feira"){
+    } else if(dados.dia_treino == "Sexta Feira"){
         document.getElementById('sax').selected = true
-    } else if(dados.dia_trieno == "Sábado"){
+    } else if(dados.dia_treino == "Sábado"){
         document.getElementById('sab').selected = true
-    } else if(dados.dia_trieno == "Domingo"){
+    } else if(dados.dia_treino == "Domingo"){
         document.getElementById('dom').selected = true
     }
 
@@ -54,7 +54,13 @@ async function editarTreino(id){
         document.getElementById("06:30").selected = true
     } else if(dados.hora_treino == "12:00"){
         document.getElementById("12:00").selected = true
-    } else if(dados.hora_treino == "19:30"){
+    } else if(dados.hora_treino == "14:00"){
+        document.getElementById("14:00").selected = true
+    } else if(dados.hora_treino == "15:00"){
+        document.getElementById("15:00").selected = true
+    } else if(dados.hora_treino == "16:00"){
+        document.getElementById("16:00").selected = true
+    }else if(dados.hora_treino == "19:30"){
         document.getElementById("19:30").selected = true
     } else if(dados.hora_treino == "21:00"){
         document.getElementById("21:00").selected = true
