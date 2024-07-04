@@ -11,7 +11,6 @@
     $activeFinalizacao = false;
     $activeObsTreino = false;
     $activeGaleria = false;
-    $activeDiaTreino = false;
     $activeMetricas = false;
 
     // Devolve o nome da página atual
@@ -30,9 +29,6 @@
     }else if(strpos($urlAtual, 'galeria') !== false){
         $tituloContentPagina = "Todas as Imagens dos treinos";
         $activeGaleria = true;
-    }else if(strpos($urlAtual, 'dia-treinamento') !== false){
-        $tituloContentPagina = "Monte seu dia de treino";
-        $activeDiaTreino = true;
     }else if(strpos($urlAtual, 'metricas') !== false){
         $tituloContentPagina = "Tudo sobre suas métricas";
         $activeMetricas = true;
@@ -48,7 +44,6 @@
     <a href="finalizacoes.php" class="link-nav-desktop <?= $activeFinalizacao ? 'active-link-desktop' : ''; ?>">Finalizações</a>
     <a href="observacoes.php" class="link-nav-desktop <?= $activeObsTreino ? 'active-link-desktop' : ''; ?>">Observações treinos</a>
     <a href="galeria.php" class="link-nav-desktop <?= $activeGaleria ? 'active-link-desktop' : ''; ?>">Galeria</a>
-    <a href="dia-treinamento.php" class="link-nav-desktop <?= $activeDiaTreino ? 'active-link-desktop' : ''; ?>">Montar treino</a>
     <a href="metricas.php" class="link-nav-desktop <?= $activeMetricas ? 'active-link-desktop' : ''; ?>">Métricas</a>
     <a class="link-nav-desktop"><?php include "modulos-admin/btn-logout/index.php"; ?></a>
 </nav>
