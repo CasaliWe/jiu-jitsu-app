@@ -43,7 +43,7 @@ async function editarTreino(id){
     } else if(dados.dia_treino == "Quinta Feira"){ 
         document.getElementById("qui").selected = true
     } else if(dados.dia_treino == "Sexta Feira"){
-        document.getElementById('sax').selected = true
+        document.getElementById('sex').selected = true
     } else if(dados.dia_treino == "Sábado"){
         document.getElementById('sab').selected = true
     } else if(dados.dia_treino == "Domingo"){
