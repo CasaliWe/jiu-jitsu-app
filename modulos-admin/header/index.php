@@ -44,5 +44,8 @@
 <!-- SWIPER JS -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
+<!-- MODAL PERSONALIZADO -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 <title><?php echo $title_site ?></title>

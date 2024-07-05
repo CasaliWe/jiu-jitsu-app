@@ -168,4 +168,22 @@ class TecnicaRepository {
         }
     }
 
+
+
+    // buscar finalizações por data
+    public static function getFinalizacaoByDate($dataInicio, $dataFim) {
+        try {
+            $res = Finalizacao::where('user_identificador', $_COOKIE['identificador'])
+                            ->whereBetween('created_at', [$dataInicio, $dataFim])
+                            ->get();
+            if($res) {
+                return count($res);
+            } else {
+                return false;
+            }
+        } catch (\Exception  $e) {
+            error_log('Erro ao buscar treinos por data do usuário: ' . $e, 3, __DIR__ . '/../error.log');
+            return false;
+        }
+    }
 }

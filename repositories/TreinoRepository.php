@@ -198,4 +198,50 @@ class TreinoRepository {
         }
     }
 
+
+
+    // buscar todas as imagens de todos os treinos 
+    public static function getAllImagensTreinos() {
+        try {
+            $res = Treino::select(['img_treino', 'created_at'])
+                         ->where('user_identificador', $_COOKIE['identificador'])
+                         ->get();
+                         
+            if ($res->isNotEmpty()) {
+                $todasAsImagensEData = [];
+                foreach ($res as $treino) {
+                    // Adiciona um novo array com a imagem e a data de criação para cada treino
+                    $todasAsImagensEData[] = [
+                        'img_treino' => $treino->img_treino,
+                        'created_at' => $treino->created_at->format('d-m-Y') // Formata a data conforme necessário
+                    ];
+                }
+                return $todasAsImagensEData;
+            } else {
+                return false;
+            }
+        } catch (\Exception  $e) {
+            error_log('Erro ao buscar imagens dos treinos do usuário: ' . $e, 3, __DIR__ . '/../error.log');
+            return false;
+        }
+    }
+
+
+    // buscar treinos por data
+    public static function getTreinosByDate($dataInicio, $dataFim) {
+        try {
+            $res = Treino::where('user_identificador', $_COOKIE['identificador'])
+                         ->whereBetween('data_treino', [$dataInicio, $dataFim])
+                         ->get();
+            if($res) {
+                return count($res);
+            } else {
+                return false;
+            }
+        } catch (\Exception  $e) {
+            error_log('Erro ao buscar treinos por data do usuário: ' . $e, 3, __DIR__ . '/../error.log');
+            return false;
+        }
+    }
+
 }

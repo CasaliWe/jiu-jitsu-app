@@ -1,6 +1,10 @@
 <?php
     // verifica auth
     include_once 'helpers/verifica-auth.php';
+
+    //busca totas as imagens dos treinos
+    use Repositories\TreinoRepository;
+    $imagens = TreinoRepository::getAllImagensTreinos();
 ?>
 
 <!DOCTYPE html>
