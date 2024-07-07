@@ -203,17 +203,18 @@ class TreinoRepository {
     // buscar todas as imagens de todos os treinos 
     public static function getAllImagensTreinos() {
         try {
-            $res = Treino::select(['img_treino', 'created_at'])
+            $res = Treino::select(['img_treino', 'data_treino'])
                          ->where('user_identificador', $_COOKIE['identificador'])
                          ->get();
                          
             if ($res->isNotEmpty()) {
                 $todasAsImagensEData = [];
                 foreach ($res as $treino) {
+                    $dataFormatada = date('d-m-Y', strtotime($treino->data_treino));
                     // Adiciona um novo array com a imagem e a data de criação para cada treino
                     $todasAsImagensEData[] = [
                         'img_treino' => $treino->img_treino,
-                        'created_at' => $treino->created_at->format('d-m-Y') // Formata a data conforme necessário
+                        'created_at' => $dataFormatada // Formata a data conforme necessário
                     ];
                 }
                 return $todasAsImagensEData;
