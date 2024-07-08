@@ -219,7 +219,7 @@ class TreinoRepository {
                 }
                 return $todasAsImagensEData;
             } else {
-                return false;
+                return [];
             }
         } catch (\Exception  $e) {
             error_log('Erro ao buscar imagens dos treinos do usuário: ' . $e, 3, __DIR__ . '/../error.log');

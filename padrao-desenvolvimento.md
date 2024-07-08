@@ -5,8 +5,10 @@
 - Editar categoria na aba finalização;
 - Fazer recuperação de senha;
 - Nome academia;
-- Att noticias atualizadas;
+- Att noticias atualizadas + cache;
 - Sessão para eventos;
+- Fazer cron de backup;
+- Ajustar aviso quando sessão tiver vazia;
 
 
 
