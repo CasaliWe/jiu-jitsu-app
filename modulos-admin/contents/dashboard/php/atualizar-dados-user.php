@@ -10,9 +10,10 @@ $nome = $_POST['nome'];
 $sobrenome = $_POST['sobrenome'];
 $email = $_POST['email'];
 $faixa = $_POST['faixa'];
+$academia = $_POST['academia'];
 
 // Update user data
-$res = UserRepository::updateUserData($identificador, $nome, $sobrenome, $email, $faixa);
+$res = UserRepository::updateUserData($identificador, $nome, $sobrenome, $email, $faixa, $academia);
 if($res){
     header('Location: ../../../../dashboard.php?success=true');
 }else{

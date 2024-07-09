@@ -7,7 +7,7 @@
 
 
 
-<main id="container-register" class="py-5" style="background-image: url(<?php echo $base_url ?>assets/imagens/site-admin/banner-login.jpg);">
+<main id="container-register" class="py-5" style="background-image: url(<?php echo $base_url ?>assets/imagens/site-admin/banner-login.webp);">
     <form onsubmit="loading()" action="modulos-admin/register/php/registrar.php" method="post" id="container-content" class="border-login">
         <img src="<?php echo $base_url ?>assets/imagens/site-admin/logo.png" id="logo-register">
         <p class="mb-4">CRIAR CONTA</p>

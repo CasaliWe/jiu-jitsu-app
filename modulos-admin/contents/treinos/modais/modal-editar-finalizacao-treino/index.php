@@ -19,12 +19,12 @@
 
               <div class='mb-3'>
                 <label for='passo_a_passo_editar' class="small">Construção (passo a passo)*</label>
-                <textarea class="form-control" name="passo_a_passo_editar" required rows="5" id="passo_a_passo_editar"></textarea>
+                <textarea  style="font-size: 12px;" class="form-control" name="passo_a_passo_editar" required rows="5" id="passo_a_passo_editar"></textarea>
               </div>
 
               <div class='mb-3'>
                 <label for='obs_finalizacao_editar' class="small">Obervações da finalização*</label>
-                <textarea class="form-control" name="obs_finalizacao_editar" required rows="5" id="obs_finalizacao_editar"></textarea>
+                <textarea  style="font-size: 12px;" class="form-control" name="obs_finalizacao_editar" required rows="5" id="obs_finalizacao_editar"></textarea>
               </div>
 
               <div class='mb-3'>

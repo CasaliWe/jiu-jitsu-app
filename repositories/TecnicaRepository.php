@@ -64,14 +64,30 @@ class TecnicaRepository {
     public static function findByCategoria($categoria) {
         try {
             $categorias = Categoria::where('user_identificador', $_COOKIE['identificador'])->get();
-            $posicoes = [];
-            foreach($categorias as $cat) {
+            $idsCategoria = [];
+            foreach ($categorias as $cat) {
                 if($cat->nome === $categoria) {
-                    $posicoes = Posicao::where('categoria_id', $cat->id)->get();
+                    $idsCategoria[] = $cat->id;
                 }
             }
-            if($posicoes) {
-                return $posicoes;
+
+            $posicoes = [];
+            foreach($idsCategoria as $idCat) {
+                $posicoes[] = Posicao::where('categoria_id', $idCat)->pluck('nome');
+            }
+            if($posicoes) {    
+                // Converter cada Collection para array antes de achatar
+                $arrayAchatado = array_merge([], ...array_map(function ($item) {
+                    return $item->toArray();
+                }, $posicoes));
+
+                // Remover duplicatas
+                $arraySemDuplicatas = array_unique($arrayAchatado);
+
+                // Reindexar o array
+                $posicoes_finais = array_values($arraySemDuplicatas);
+
+                return $posicoes_finais;
             } else {
                 return false;
             }
@@ -183,6 +199,22 @@ class TecnicaRepository {
             }
         } catch (\Exception  $e) {
             error_log('Erro ao buscar treinos por data do usuário: ' . $e, 3, __DIR__ . '/../error.log');
+            return false;
+        }
+    }
+
+
+    // buscar todas as finalizações
+    public static function getAllTecnicas() {
+        try {
+            $tecnicas = Finalizacao::where('user_identificador', $_COOKIE['identificador'])->orderBy('created_at', 'desc')->get();
+            if($tecnicas) {
+                return $tecnicas;
+            } else {
+                return false;
+            }
+        } catch (\Exception  $e) {
+            error_log('Erro ao buscar todas as finalizações do usuário: ' . $e, 3, __DIR__ . '/../error.log');
             return false;
         }
     }

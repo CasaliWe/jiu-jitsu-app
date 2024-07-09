@@ -1,6 +1,5 @@
 <?php
     include_once 'config/config.php';
-    include_once 'services/buscar-noticias.php';
 ?>
 
 <style>

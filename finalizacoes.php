@@ -1,6 +1,11 @@
 <?php
     // verifica auth
     include_once 'helpers/verifica-auth.php';
+
+    // buscando todas as finalizações
+        //busca totas as imagens dos treinos
+        use Repositories\TecnicaRepository;
+        $tecnicas = TecnicaRepository::getAllTecnicas();
 ?>
 
 <!DOCTYPE html>

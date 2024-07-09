@@ -23,12 +23,12 @@
           <input type='type' id='sobrenome' value="<?= $user->sobrenome; ?>" name='sobrenome' class='form-control' required>
         </div>
 
-        <div class='mb-3 col-12 col-lg-6'>
+        <div class='mb-3 col-12 col-lg-4'>
           <label for='email' class="small">E-mail*</label>
           <input type='type' id='email' value="<?= $user->email; ?>" name='email' class='form-control' required>
         </div>
 
-        <div class='mb-3 col-12 col-lg-6'>
+        <div class='mb-3 col-12 col-lg-4'>
           <label for='faixa' class="small">Faixa*</label>
           <select class="form-select" name="faixa" required>
             <option value="">-- Selecione uma faixa --</option>
@@ -38,6 +38,11 @@
             <option value="marrom" <?= $user->faixa == 'marrom' ? 'selected' : '' ?>>Marrom</option>
             <option value="preta" <?= $user->faixa == 'preta' ? 'selected' : '' ?>>Preta</option>
           </select>
+        </div>
+
+        <div class='mb-3 col-12 col-lg-4'>
+          <label for='academia' class="small">Academia*</label>
+          <input type='type' maxlength="20" id='text' value="<?= $user->academia; ?>" name='academia' class='form-control'>
         </div>
 
         <div class="col-12 col-lg-3 mb-4 text-center text-lg-start">

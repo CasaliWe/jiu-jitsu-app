@@ -5,6 +5,7 @@
     $nome = $user->nome;
     $faixa = $user->faixa;
     $sobrenome = $user->sobrenome;
+    $academia = $user->academia;
 
     if($faixa == 'branca'){
         $corFaixa = '#fff';
@@ -38,9 +39,11 @@
                 <a href="dashboard.php"><img src="<?php echo $base_url ?>assets/imagens/site-admin/ids/<?= $img ? $img : 'img-id.jpg' ?>" alt="Logo"></a>
             </div>
             <p class="align-self-center mt-3 nome-faixa-mobile">
-                <span class="fw-semibold"><?= $nome; ?> <?= $sobrenome; ?></span> 
+                <span class="fw-bold"><?= $nome; ?> <?= $sobrenome; ?></span> 
                 <br> 
-                <?= $faixa ? 'Faixa '.strtoupper($faixa) : "" ?>
+                <span style="font-size: 9px;"><strong>GRADUAÇÃO</strong>: <?= strtoupper($faixa); ?></span>
+                <br>
+                <span style="font-size: 9px;"><strong>ACADEMIA</strong>: <?= $academia; ?></span>
             </p>
         </div>
 
@@ -59,7 +62,9 @@
         <p class="mt-3 small text-center">
             <span class="fw-semibold"><?= $nome; ?> <?= $sobrenome; ?> </span>
             <br> 
-            <span class="small"><?= $faixa ? 'Faixa '.strtoupper($faixa) : "" ?></span>
+            <span style="font-size: 9px;"><strong>GRADUAÇÃO</strong>: <?= strtoupper($faixa); ?></span>
+            <br>
+            <span style="font-size: 9px;"><strong>ACADEMIA</strong>: <?= $academia; ?></span>
         </p>
     </div>
 

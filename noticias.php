@@ -1,6 +1,10 @@
 <?php
     // verifica auth
     include_once 'helpers/verifica-auth.php';
+
+    //busca todas as noticias
+    use Repositories\NoticiaRepository;
+    $noticias = NoticiaRepository::getAllNoticias();
 ?>
 
 <!DOCTYPE html>

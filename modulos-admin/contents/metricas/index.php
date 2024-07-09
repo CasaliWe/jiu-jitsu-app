@@ -9,7 +9,7 @@
     <div class="row align-items-end">
         <div class='mb-3 mb-lg-0 col-12 col-lg-5'>
           <label for='data_inicial' class="small">Data inicial*</label>
-          <input type="date" class="form-control" required id="data_inicial" name="data_inicial">
+          <input type="date" class="form-control" value="<?php echo date('Y-m-d', strtotime('-7 days')); ?>" required id="data_inicial" name="data_inicial">
         </div>
 
         <div class='mb-4 mb-lg-0 col-12 col-lg-5'>

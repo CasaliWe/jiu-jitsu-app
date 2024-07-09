@@ -35,6 +35,11 @@
 <!-- GLOBAL CSS -->
 <link rel="stylesheet" href="<?php echo $base_url ?>assets/css-global/style.css">
 
+<!-- BASE URL JS -->
+<script> 
+    var base_url = '<?= $_ENV['BASE_URL']; ?>'
+</script>
+
 <!-- GLOBAL JS -->
 <script src="<?php echo $base_url ?>assets/js-global/app.js"></script>
 

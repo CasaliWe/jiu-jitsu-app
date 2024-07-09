@@ -24,7 +24,7 @@
                   <div class="mb-4 col-8">
                     <label for="posicao_finalizacao" class="small">Nova posição*</label>
                     <input required name="posicao_finalizacao" id="posicao_finalizacao" class="form-control">
-                    <div class="form-text">Para criar com uma nova posição.</div>
+                    <div  style="font-size: 10px;">Para criar com uma nova posição.</div>
                   </div>
                   <div class="mb-4 col-4">
                     <label for="existentes" class="small">Existentes*</label>
@@ -84,7 +84,7 @@
           document.getElementById("existentes").innerHTML = `<option value="">Selecione</option>`
           data.forEach(element => {
             document.getElementById("existentes").innerHTML += `
-              <option value="${element.nome}">${element.nome}</option>
+              <option value="${element}">${element}</option>
             `
           });
       } else {
@@ -95,7 +95,7 @@
           document.getElementById("existentes").innerHTML = `<option value="">Selecione</option>`
           data.forEach(element => {
             document.getElementById("existentes").innerHTML += `
-              <option value="${element.nome}">${element.nome}</option>
+              <option value="${element}">${element}</option>
             `
           });
       }

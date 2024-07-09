@@ -1,16 +1,13 @@
 <?php
-// Array com as 3 chaves de API
-$apiKeys = [
-    'f75fb637bbfa487db52e28c0e5d3f937',
-    'dddf5195b2e74f0c90d5d80d2d62a660',
-    '1090a6f0cb12408ba0be61216bdf5d73'
-];
+require __DIR__.'/../config/bootstrap.php';
+use Repositories\NoticiaRepository;
+
 // Seleciona uma chave aleatoriamente
-$apiKey = $apiKeys[array_rand($apiKeys)];
+$apiKey = $_ENV['KEY_NOTICIAS_API'];
 // Consulta de busca
-$query = 'jiu-jitsu OR UFC OR boxe OR judô OR grapping OR bjj';
+$query = 'jiu-jitsu OR UFC OR mma OR cbjj OR ibjjf OR adcc OR boxe OR judô OR grapping OR bjj';
 // Define a data inicial
-$dateFrom = date('Y-m-d', strtotime('-7 days'));
+$dateFrom = date('Y-m-d', strtotime('-14 days'));
 // Define a data final como a data atual
 $dateTo = date('Y-m-d');
 // URL da News API com a consulta, o parâmetro de idioma e o período
@@ -35,8 +32,12 @@ curl_close($ch);
 // Decodifica a resposta JSON
 $newsData = json_decode($response);
 
+// Inicializa um array para armazenar as notícias
+$noticias = [];
+
 // Verifica se a requisição foi bem-sucedida
 if ($newsData->status === 'ok') {
+    
     foreach ($newsData->articles as $article) {
         // Exibe apenas artigos que mencionam explicitamente "jiu-jitsu", "UFC", "boxe" ou "judô" no título ou descrição
         if (
@@ -55,6 +56,23 @@ if ($newsData->status === 'ok') {
             }
         }
     }
+
+
+    // limpa a tabela de notícias
+    NoticiaRepository::resetNoticias();
+
+    // Cria as notícias no banco de dados
+    foreach ($noticias as $noticia) {
+        $res = NoticiaRepository::createNoticias($noticia);
+        if(!$res){
+            echo 'Erro ao criar notícia: ';
+            exit;
+        }
+    }
+
+    // RESPOSTA
+    echo 'Notícias atualizadas!';
+
 } else {
     echo 'Erro ao buscar notícias: ' . htmlspecialchars($newsData->message);
 }

@@ -74,7 +74,7 @@ function inserirFinalizacoes(finalizacoes){
     console.log(finalizacoes)
     var pai = document.getElementById("container-recebe-finalizacoes")
     pai.innerHTML = ""
-    pai.innerHTML = "<h5 class='mb-2'>Finalizações:</h5>"
+    pai.innerHTML = "<h5 class='mb-2'>Finalizações filtradas:</h5>"
 
     // ordenando as finalizações por data de criação
     finalizacoes.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
@@ -152,7 +152,7 @@ function inserirFinalizacoes(finalizacoes){
                                 ${passoAPasso}
                             </div>
                             
-                            <div class='mb-4 pb-2'>
+                            <div class='mb-2 pb-2'>
                                 <h6>Observações:</h6>
                                 ${observacoes}
                             </div>

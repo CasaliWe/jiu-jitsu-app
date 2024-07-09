@@ -7,7 +7,7 @@
 
 
 
-<main id="container-login" style="background-image: url(<?php echo $base_url ?>assets/imagens/site-admin/banner-login.jpg);">
+<main id="container-login" style="background-image: url(<?php echo $base_url ?>assets/imagens/site-admin/banner-login.webp);">
     <form onsubmit="loading()" action="modulos-admin/login/php/logar.php" method="post" id="container-content" class="border-login">
         <img src="<?php echo $base_url ?>assets/imagens/site-admin/logo.png" id="logo-login">
         <p class="mb-4">JIU JITSU APP</p>
@@ -20,7 +20,7 @@
         <button type="submit" class="btn rounded btn-principal">ENTRAR</button>
         <a href="register.php" class="w-75 mt-2 btn btn-secondary">CRIAR CONTA</a>
 
-        <!-- <a href="recuperar-senha.php" class="text-white mt-4">Esqueci minha senha</a> -->
+        <a href="recuperar-senha.php" class="text-white mt-4">Esqueci minha senha</a>
 
         <?php if(isset($_SESSION['erro-login'])){ ?>
             <h6 class="mt-3 fw-semibold text-danger">Verifique os dados!</h6>

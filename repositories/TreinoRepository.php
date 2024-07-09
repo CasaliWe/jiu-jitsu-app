@@ -205,6 +205,7 @@ class TreinoRepository {
         try {
             $res = Treino::select(['img_treino', 'data_treino'])
                          ->where('user_identificador', $_COOKIE['identificador'])
+                         ->orderBy('data_treino', 'desc')
                          ->get();
                          
             if ($res->isNotEmpty()) {

@@ -41,12 +41,12 @@
 
               <div class='mb-3'>
                 <label for='passo-a-passo' class="small">Construção (passo a passo)*</label>
-                <textarea class="form-control" name="passo-a-passo" required rows="5" id="passo-a-passo"></textarea>
+                <textarea  style="font-size: 12px;" class="form-control" name="passo-a-passo" required rows="5" id="passo-a-passo"></textarea>
               </div>
 
               <div class='mb-3'>
                 <label for='obs_finalizacao' class="small">Obervações da finalização*</label>
-                <textarea class="form-control" name="obs_finalizacao" required rows="5" id="obs_finalizacao"></textarea>
+                <textarea  style="font-size: 12px;" class="form-control" name="obs_finalizacao" required rows="5" id="obs_finalizacao"></textarea>
               </div>
 
               <div class='mb-3'>
@@ -84,7 +84,7 @@
           document.getElementById("existentes").innerHTML = `<option value="">Selecione</option>`
           data.forEach(element => {
             document.getElementById("existentes").innerHTML += `
-              <option value="${element.nome}">${element.nome}</option>
+              <option value="${element}">${element}</option>
             `
           });
       } else {
@@ -95,7 +95,7 @@
           document.getElementById("existentes").innerHTML = `<option value="">Selecione</option>`
           data.forEach(element => {
             document.getElementById("existentes").innerHTML += `
-              <option value="${element.nome}">${element.nome}</option>
+              <option value="${element}">${element}</option>
             `
           });
       }
