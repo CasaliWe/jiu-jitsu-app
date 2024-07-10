@@ -35,7 +35,11 @@
 
 
         <!-- todas as tecnicas para exibir inicialmente caso não faça filtragem -->
-        <h5 class='mb-2'>Todas as finalizações:</h5>
+        <?php if(count($tecnicas) > 0){
+            echo "<h5 class='mb-2'>Todas as finalizações:</h5>";
+        }else{
+            echo "<h6 class='p-3 text-center border rounded text-secondary'>Nenhuma finalização cadastrada!</h6>";
+        } ?>
         <?php foreach ($tecnicas as $tec) { ?>
             <div class="mb-3 item-acordion accordion">
                 <div class="accordion-item">

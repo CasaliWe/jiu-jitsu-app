@@ -10,6 +10,10 @@
 
     <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal-treino">Adicionar novo treino +</button>
 
+    <?php if(count($treinos) == 0){
+        echo "<h6 class='p-3 mt-5 text-center border rounded text-secondary'>Nenhum treino cadastrado!</h6>";
+    }?>
+
     <!-- dias -->
     <?php foreach ($treinos as $key => $treino) { ?>
         
