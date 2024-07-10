@@ -14,6 +14,7 @@
     $activeMetricas = false;
     $activeNoticias = false;
     $activeVideos = false;
+    $activeEventos = false;
 
     // Devolve o nome da página atual
     if(strpos($urlAtual, 'dashboard') !== false){
@@ -40,6 +41,9 @@
     }else if(strpos($urlAtual, 'videos') !== false){
         $tituloContentPagina = "Vídeos sobre o mundo dos esportes";
         $activeVideos = true;
+    }else if(strpos($urlAtual, 'eventos') !== false){
+        $tituloContentPagina = "Eventos esportivos";
+        $activeEventos = true;
     }
 ?>
 
@@ -53,6 +57,7 @@
     <a href="observacoes.php" class="link-nav-desktop <?= $activeObsTreino ? 'active-link-desktop' : ''; ?>">Observações treinos</a>
     <a href="galeria.php" class="link-nav-desktop <?= $activeGaleria ? 'active-link-desktop' : ''; ?>">Galeria</a>
     <a href="metricas.php" class="link-nav-desktop <?= $activeMetricas ? 'active-link-desktop' : ''; ?>">Métricas</a>
+    <a href="eventos.php" class="link-nav-desktop <?= $activeEventos ? 'active-link-desktop' : ''; ?>">Eventos</a>
     <a href="videos.php" class="link-nav-desktop <?= $activeVideos ? 'active-link-desktop' : ''; ?>">Vídeos esportes</a>
     <a href="noticias.php" class="link-nav-desktop <?= $activeNoticias ? 'active-link-desktop' : ''; ?>">Notícias esportes</a>
     <a class="link-nav-desktop"><?php include "modulos-admin/btn-logout/index.php"; ?></a>

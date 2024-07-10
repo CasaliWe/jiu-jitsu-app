@@ -69,7 +69,7 @@
                 <div class="mb-3 container_imagem-noticia">
                     <img src="<?= $noticia['imagem']; ?>">
                 </div>
-                <a href="<?= $noticia['url']; ?>" target="_blank" class="btn btn_noticia btn-warning">Acessar</a>
+                <a href="<?= $noticia['url']; ?>" target="_blank" class="btn btn_noticia btn-dark">Acessar</a>
             </div>
         <?php } ?>
     </div>
