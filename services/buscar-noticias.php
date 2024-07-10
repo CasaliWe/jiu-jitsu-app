@@ -1,5 +1,7 @@
 <?php
-require __DIR__.'/../config/bootstrap.php';
+// importando o envio de email
+require __DIR__ . '/../helpers/enviar-email.php';
+
 use Repositories\NoticiaRepository;
 
 // Seleciona uma chave aleatoriamente
@@ -65,15 +67,15 @@ if ($newsData->status === 'ok') {
     foreach ($noticias as $noticia) {
         $res = NoticiaRepository::createNoticias($noticia);
         if(!$res){
-            echo 'Erro ao criar notícia: ';
+            enviarEmail('Erro ao atualizar notícias no dia: '. date('d-m-Y'), 'Ocorreu um erro na tentativa de atualizar as notícias no banco de dados.', null, null);
             exit;
         }
     }
 
     // RESPOSTA
-    echo 'Notícias atualizadas!';
+    enviarEmail('Notícias atualizadas no dia: '. date('d-m-Y'), 'As notícias foram atualizadas com sucesso.', null, null);
 
 } else {
-    echo 'Erro ao buscar notícias: ' . htmlspecialchars($newsData->message);
+    enviarEmail('Erro ao atualizar notícias no dia: '. date('d-m-Y'), 'Ocorreu um erro na tentativa de atualizar as notícias no banco de dados.', null, null);
 }
 ?>

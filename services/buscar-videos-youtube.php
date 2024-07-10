@@ -1,12 +1,14 @@
 <?php
-require __DIR__.'/../config/bootstrap.php';
+// importando o envio de email
+require __DIR__ . '/../helpers/enviar-email.php';
+
 use Repositories\VideoRepository;
 
 // Chave da API do YouTube
 $apiKey = $_ENV['KEY_YOUTUBE_API'];
 
 // Termos de busca
-$queries = ["jiu jitsu", "jiu jitsu tecnicas", "boxe", "ufc", "judo"];
+$queries = ["jiu jitsu", "jiu jitsu tecnicas", "jiu jitsu cortes podcasts", "boxe", "ufc", "judo"];
 
 // Data de início
 $dataAtual = new DateTime();
@@ -18,7 +20,7 @@ $dataAtual->sub(new DateInterval('P14D'));
 $publishedAfter = $dataAtual->format('Y-m-d\TH:i:s\Z');
 
 // Número máximo de resultados por termo
-$maxResults = 20;
+$maxResults = 15;
 
 // Função para fazer requisições à API do YouTube
 function fetchVideos($query, $apiKey, $publishedAfter, $maxResults) {
@@ -69,15 +71,15 @@ if (!empty($allVideos)) {
     foreach ($videos as $video) {
         $res = VideoRepository::createVideo($video);
         if(!$res){
-            echo 'Erro ao criar Vídeo: ';
+            enviarEmail('Erro ao atualizar vídeos no dia: '. date('d-m-Y'), 'Ocorreu um erro na tentativa de atualizar os vídeos no banco de dados.', null, null);
             exit;
         }
     }
 
     // RESPOSTA
-    echo 'Vídeos atualizados!';
+    enviarEmail('Vídeos atualizados no dia: '. date('d-m-Y'), 'Os vídeos foram atualizados com sucesso no banco de dados.', null, null);
 
 } else {
-    echo "Nenhum vídeo encontrado.";
+    enviarEmail('Erro ao atualizar vídeos no dia: '. date('d-m-Y'), 'Nenhum vídeo foi encontrado na tentativa de atualizar os vídeos no banco de dados.', null, null);
 }
 ?>

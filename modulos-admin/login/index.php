@@ -1,5 +1,5 @@
 <?php
-    include_once './config/config.php';
+    include_once __DIR__.'/../../config/config.php';
 ?>
 
 
@@ -25,6 +25,10 @@
         <?php if(isset($_SESSION['erro-login'])){ ?>
             <h6 class="mt-3 fw-semibold text-danger">Verifique os dados!</h6>
         <?php } ?>
+
+        <?php if(isset($_SESSION['senha-atualizada'])){ ?>
+            <h6 class="mt-3 fw-semibold text-success">Nova senha atualizada!</h6>
+        <?php } ?>
     </form>
 </main>
 
@@ -33,6 +37,7 @@
 <?php 
     // removendo sessão
     unset($_SESSION['erro-login']);  
+    unset($_SESSION['senha-atualizada']); 
     exit;
 ?>
 

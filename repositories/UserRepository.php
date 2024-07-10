@@ -131,8 +131,8 @@ class UserRepository {
         } 
      }
 
-     // Atualizar o campo 'senha' diretamente
-     public static function updateUserPassword($identificador, $senha) {
+    // Atualizar o campo 'senha' diretamente
+    public static function updateUserPassword($identificador, $senha) {
         try {
             $userSuccess = User::where('identificador', $identificador)->update(['senha' => $senha]);
  
@@ -145,6 +145,23 @@ class UserRepository {
             error_log('Erro ao atualizar a senha: ' . $e, 3, __DIR__ . '/../error.log');
             return false;
         }
-     }
+    }
+
+
+    // Atualizar o campo 'senha' diretamente
+    public static function updatePasswordUser($id, $senha) {
+        try {
+            $userSuccess = User::where('identificador', $id)->update(['senha' => $senha]);
+ 
+            if ($userSuccess) {
+                return true;
+            } else {
+                 return false;
+            }
+        } catch (\Exception  $e) {
+            error_log('Erro ao atualizar a senha: ' . $e, 3, __DIR__ . '/../error.log');
+            return false;
+        }
+    }
 
 }
