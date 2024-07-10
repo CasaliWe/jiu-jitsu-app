@@ -28,7 +28,7 @@
     }
     @media(max-width: 992px){
         ._container_video{
-            height: 330px;
+            height: 220px;
         }
     }
 </style>

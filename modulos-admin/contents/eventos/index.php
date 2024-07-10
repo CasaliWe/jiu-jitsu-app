@@ -37,7 +37,7 @@
 
     <div class="row">
         <?php foreach ($eventos as $evento) { ?>
-            <div class="mb-5 py-2 py-lg-0 px-4 px-3 col-12 col-lg-4">
+            <div class="mb-5 py-2 py-lg-0 px-3 px-lg-2 col-12 col-lg-4">
                 <h5 class="text-secondary _titulo_evento"><?= $evento['titulo']; ?></h5>
                 <p class="my-0">Data: <?= $evento['data']; ?></p>
                 <div class="_container_imagem_evento">
