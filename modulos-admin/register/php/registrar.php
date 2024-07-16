@@ -47,7 +47,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'identificador' => $identificador,
         'nome' => $nome,
         'sobrenome' => $sobrenome,
-        'email' => $email
+        'email' => $email,
+        'faixa' => 'branca',
+        'academia' => 'Sem Academia'
     ]);
 
     if ($user) {

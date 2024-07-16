@@ -49,9 +49,10 @@ class TreinoRepository {
             // deletando as imagens do treino
             $res = Treino::where('treino_id', $id)->delete();
 
-            // removendo as imagens do servidor
+            // removendo as imagens do servidor se não for a imagem preview
             if($img_treino) {
                 foreach($img_treino as $img) {
+                    if($img != 'preview.png')
                     unlink(__DIR__ . '/../assets/imagens/site-admin/treinos/' . $img);
                 }
             }
@@ -86,6 +87,12 @@ class TreinoRepository {
 
     // remover imagem do treino
     public static function deleteImgTreino($id, $imgName) {
+
+        // verificando se é a iamgem preview que é usada quando novo user criar conta
+        if($imgName == 'preview.png') {
+            return false;
+        }
+
         try {
             $img_treino = Treino::where('treino_id', $id)->value('img_treino');
     

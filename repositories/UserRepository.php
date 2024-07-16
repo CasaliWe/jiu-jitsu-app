@@ -3,6 +3,10 @@
 namespace Repositories;
 
 use Models\User;
+use Models\Treino;
+use Models\Categoria;
+use Models\Posicao;
+use Models\Finalizacao;
 
 class UserRepository {
 
@@ -83,16 +87,56 @@ class UserRepository {
         }
     }
 
-    // Cria um novo usuário
+    // Cria um novo usuário ja setando dados para ter exemplo
     public static function create($data) {
         try {
+            // Cria o user
             $user = User::create($data);
+
+            // criando um novo treino exemplo 
+            for ($i=1; $i < 3; $i++) { 
+                $treino = Treino::create([
+                    'tipo_treino' => 'Jiu Jitsu',
+                    'aula_treino' => $i,
+                    'dia_treino' => 'Segunda Feira',
+                    'hora_treino' => '19:30',
+                    'data_treino' => '2024-06-2'.$i,
+                    'img_treino' => ["preview.png"],
+                    'observacoes_treino' => ["* Exemplo de observação para o treino $i;"],
+                    'user_identificador' => $user['identificador']
+                ]);
+            }
+
+            // Cria uma finalização para exemplo
+            $categoria = Categoria::create([
+                'nome' => 'Passador',
+                'user_identificador' => $user['identificador'],
+                'treino_id' => null
+            ]);
+            
+            $posicao = Posicao::create([
+                'nome' => '100kg',
+                'categoria_id' => $categoria->id,
+                'user_identificador' => $user['identificador']
+            ]);
+    
+            $finalizacao = Finalizacao::create([
+                'nome' => 'Triângulo (Exemplo)',
+                'passo_a_passo' => ["1- Primeiro passo;","2- Segundo passo;","3- Terceiro passo;"],
+                'observacoes' => ["* Exemplo de obervação para finalização;"],
+                'posicao_id' => $posicao->id,
+                'video' => null,
+                'estrela' => 5,
+                'plataforma' => null,
+                'user_identificador' => $user['identificador']
+            ]);
 
             if($user){
                 return $user;
             }else{
                 return false;
             }
+
         } catch (\Exception  $e) {
             error_log('Erro ao criar um novo usúario: ' . $e, 3, __DIR__ . '/../error.log');
             return false;
