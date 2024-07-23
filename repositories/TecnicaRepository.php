@@ -207,7 +207,10 @@ class TecnicaRepository {
     // buscar todas as finalizações
     public static function getAllTecnicas() {
         try {
-            $tecnicas = Finalizacao::where('user_identificador', $_COOKIE['identificador'])->orderBy('created_at', 'desc')->get();
+            $tecnicas = Finalizacao::with('posicoes')
+            ->where('user_identificador', $_COOKIE['identificador'])
+            ->orderBy('created_at', 'desc')
+            ->get();
             if($tecnicas) {
                 return $tecnicas;
             } else {

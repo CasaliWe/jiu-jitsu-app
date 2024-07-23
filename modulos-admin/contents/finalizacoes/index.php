@@ -46,7 +46,7 @@
                     <h2 class="accordion-header d-flex px-2 align-items-center justify-content-between">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#finalizacao-<?= $tec['id'] ?>" aria-expanded="false" aria-controls="finalizacao-<?= $tec['id'] ?>">
                             <div class="d-flex flex-column">
-                                <div class="d-flex mb-1"> 
+                                <div class="d-flex mb-2"> 
                                     <?php
                                         for ($i=1; $i <= 5; $i++) { 
                                             if($i <= $tec['estrela']){
@@ -57,7 +57,10 @@
                                         }
                                     ?>
                                 </div>
-                                <?= $tec['nome'] ?>
+                                <div>
+                                    <span class="text-secondary"><?= $tec['posicoes']['nome'] ?> -</span>
+                                    <span class="fw-semibold"><?= $tec['nome'] ?></span>
+                                </div>
                             </div>
                         </button>
 
