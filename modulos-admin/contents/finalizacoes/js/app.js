@@ -1,5 +1,9 @@
 // pega a categoria selecionada
 function selecionarPosicoesCategoria(){
+    
+    // ocultando ordenar por
+    document.getElementById("ordenar-por").classList.add('d-none')
+
     var cat = document.getElementById("categoria-finalizacao").value
 
     document.getElementById("container-recebe-finalizacoes").innerHTML = ""
@@ -71,7 +75,10 @@ async function selecionarFinalizacoesDaPosicao(){
 
 // func que insere as finalizações no container
 function inserirFinalizacoes(finalizacoes){
-    console.log(finalizacoes)
+    
+    // ocultando ordenar por
+    document.getElementById("ordenar-por").classList.add('d-none')
+
     var pai = document.getElementById("container-recebe-finalizacoes")
     pai.innerHTML = ""
     pai.innerHTML = "<h5 class='mb-2'>Finalizações filtradas:</h5>"

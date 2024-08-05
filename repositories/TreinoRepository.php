@@ -177,25 +177,9 @@ class TreinoRepository {
     // buscar as observacoes de todos os treinos
     public static function getObservacoesTreinos() {
         try {
-            $res = Treino::where('user_identificador', $_COOKIE['identificador'])->pluck('observacoes_treino');
+            $res = Treino::select(['observacoes_treino', 'treino_id'])->where('user_identificador', $_COOKIE['identificador'])->orderBy('updated_at', 'desc')->get();
             if($res) {
-                $observacoesFlat = array_merge(...$res);
-                $observacoesFiltradas = array_filter($observacoesFlat, function($observacao) {
-                    return !str_contains($observacao, "Sem observações para esse treino");
-                });
-
-                $observacoesIndividuais = [];
-                foreach ($observacoesFiltradas as $observacao) {
-                    $partes = explode(";\r\n", $observacao);
-                    foreach ($partes as $parte) {
-                        $observacaoLimpa = trim($parte, "* \r\n");
-                        if (!empty($observacaoLimpa)) {
-                            $observacoesIndividuais[] = $observacaoLimpa;
-                        }
-                    }
-                }
-
-                return $observacoesIndividuais;
+                return $res;
             } else {
                 return false;
             }

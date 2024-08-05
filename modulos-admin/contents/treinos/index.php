@@ -8,7 +8,20 @@
 <section>
     <h6 class="small mb-4">Aqui você pode <strong>Adicionar</strong> todos os seus treinos!</h6>
 
-    <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal-treino">Adicionar novo treino +</button>
+    <div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between">
+        <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal-treino">Adicionar novo treino +</button>
+        
+        <div class="dropdown mt-3 mt-lg-0">
+            <a class="small text-dark fw-semibold dropdown-toggle" href="#" role="button" id="dropdownOrdenarPor" data-bs-toggle="dropdown" aria-expanded="false">
+                Filtrar por: <span class="text-success"> <?= $filtro; ?> <?= $filtro != 'Todos os Treinos' ? "<span class='text-danger'>(". count($treinos) ." treinos)</span>" : '' ?></span>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownOrdenarPor">
+                <li><a class="dropdown-item" href="treinos.php">Todos os Treinos</a></li>
+                <li><a class="dropdown-item" href="treinos.php?filtro=jj">Jiu Jitsu</a></li>
+                <li><a class="dropdown-item" href="treinos.php?filtro=nogi">No Gi</a></li>
+            </ul>
+        </div>
+    </div>
 
     <?php if(count($treinos) == 0){
         echo "<h6 class='p-3 mt-5 text-center border rounded text-secondary'>Nenhum treino cadastrado!</h6>";
@@ -34,7 +47,7 @@
         <div class="my-4 item-acordion accordion">
             <div class="accordion-item">
                 <h2 class="accordion-header d-flex justify-content-between align-items-center">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treino-<?php echo $key ?>" aria-expanded="false" aria-controls="treino-<?php echo $key ?>">
+                    <button id="btn-treino-<?php echo $treino['treino_id'] ?>" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treino-<?php echo $treino['treino_id'] ?>" aria-expanded="false" aria-controls="treino-<?php echo $treino['treino_id'] ?>">
                         <div class="row w-100 px-2">
                             <div class="col-6 col-lg-5 d-flex flex-column text-start">
                                 <span class="d-none d-lg-block mb-1 small fw-semibold"><?= $treino['tipo_treino']; ?></span>
@@ -66,7 +79,7 @@
                         </ul>
                     </div>
                 </h2>
-                <div id="treino-<?php echo $key ?>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div id="treino-<?php echo $treino['treino_id'] ?>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
         
                         <div class="row my-3">
@@ -89,7 +102,7 @@
                             </div>
 
                             <div class="mb-4 col-12 col-lg-6 col-xxl-3 px-3">
-                                <h6 class="fw-semibold mb-3">Observações do treino:</h6>
+                                <h6 class="fw-semibold mb-3">Observação do treino:</h6>
 
                                 <div class="small">
                                     <?php foreach ($observacoes as $obs) { ?>
@@ -218,6 +231,21 @@
     </div>
 </section>
 <!-- TREINOS -->
+
+
+
+<!-- FAZ O SCROLL ATÉ O TREINO E ABRE O ACCORDEON -->
+<?php if(isset($_GET['scroll'])){ ?>
+    <script>
+        var element = document.getElementById("<?php echo $_GET['scroll'] ?>");
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        document.getElementById("<?php echo str_replace('btn-', '', $_GET['scroll']); ?>").classList.add('show');
+    </script>
+<?php } ?>                              
+<!-- FAZ O SCROLL ATÉ O TREINO E ABRE O ACCORDEON -->
 
 
 <script src="<?php echo $base_url ?>modulos-admin/contents/treinos/js/app.js"></script>

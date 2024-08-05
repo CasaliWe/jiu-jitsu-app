@@ -75,16 +75,7 @@ async function editarTreino(id){
     }
 
     // adicionar observações modal editar;
-    let itens = dados.observacoes_treino
-    itens = itens.map(item => {
-        if (!item.endsWith(';')) {
-            item += ';';
-        }
-        return item.trim();
-    });
-    itens = itens.filter(item => item);
-    let itensString = itens.join('\n');
-    document.getElementById("observacoes_treino_editar").value = itensString;
+    document.getElementById("observacoes_treino_editar").value = dados.observacoes_treino;
     
     // adicionar imagens modal editar;
     var imagensArray = dados.img_treino

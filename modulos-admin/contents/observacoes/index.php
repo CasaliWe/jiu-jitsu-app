@@ -12,13 +12,16 @@
     }?>
 
     <div>
-        <?php for ($i = count($observacoes) - 1; $i >= 0; $i--) {
-                if(strpos($observacoes[$i], ';') !== false){
-                    echo "<p class='py-2 border-bottom'>* $observacoes[$i]</p>";
-                }else{
-                    echo "<p class='py-2 border-bottom'>* $observacoes[$i];</p>";
+        <?php 
+            $items = [];
+            foreach ($observacoes as $obs) {
+                foreach ($obs['observacoes_treino'] as $txtObs) {
+                    if($txtObs != '* Sem observações para esse treino') {
+                        echo "<p class='d-flex justify-content-between align-items-center py-2 border-bottom'><span class='w-75'>$txtObs</span> <a class='text-danger ms-4 small text-end' href='treinos.php?scroll=btn-treino-{$obs['treino_id']}'>Acessar treino</a></p>";
+                    }
                 }
-        } ?>
+            } 
+        ?>
     </div>
 </section>
 <!-- OBSERVAÇÕES -->

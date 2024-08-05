@@ -205,11 +205,26 @@ class TecnicaRepository {
 
 
     // buscar todas as finalizações
-    public static function getAllTecnicas() {
+    public static function getAllTecnicas($ordem) {
+
+        if($ordem == 'recentes') {
+            $ordenar = 'desc';
+            $chave = 'created_at';
+        } else if($ordem == 'antigos') {
+            $ordenar = 'asc';
+            $chave = 'created_at';
+        } else if($ordem == 'maior-avaliacao') {
+            $ordenar = 'desc';
+            $chave = 'estrela';
+        } else if($ordem == 'menor-avaliacao') {
+            $ordenar = 'asc';
+            $chave = 'estrela';
+        }
+
         try {
             $tecnicas = Finalizacao::with('posicoes')
             ->where('user_identificador', $_COOKIE['identificador'])
-            ->orderBy('created_at', 'desc')
+            ->orderBy($chave, $ordenar)
             ->get();
             if($tecnicas) {
                 return $tecnicas;

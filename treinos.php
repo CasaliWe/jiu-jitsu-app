@@ -2,11 +2,32 @@
     // verifica auth
     include_once 'helpers/verifica-auth.php';
 
+    // Pegando parametro do filtro da url
+    $getFiltro = isset($_GET['filtro']) ? $_GET['filtro'] : 'todos';
+    $filtro;
+    if($getFiltro == 'todos'){
+        $filtro = 'Todos os Treinos';
+    }else if($getFiltro == 'jj'){
+        $filtro = 'Jiu Jitsu';
+    }else if($getFiltro == 'nogi'){
+        $filtro = 'No Gi';
+    }else{
+        $filtro = 'Todos os Treinos';
+    }
 
-    //busca dados do usuário e pega os dias de treinos
+    //busca dados do usuário e pega os dias de treinos, depois faz o filtro
     use Repositories\UserRepository;
     $user = UserRepository::getUser($_COOKIE['identificador']);
-    $treinos = $user->treinos;
+    $treinos = []; // RECEBE OS TREINOS DO USUÁRIO
+    if($filtro == 'Todos os Treinos'){
+        $treinos = $user->treinos;
+    }else{
+        foreach ($user->treinos as $treino) {
+             if($treino->tipo_treino == $filtro){
+                    $treinos[] = $treino;
+             }
+        }
+    }
 ?>
 
 <!DOCTYPE html>

@@ -27,6 +27,18 @@
             </select>
         </div>
     </div>
+    
+    <div id="ordenar-por" class="dropdown mt-3 mt-lg-0">
+            <a class="small text-dark fw-semibold dropdown-toggle" href="#" role="button" id="dropdownOrdenarPor" data-bs-toggle="dropdown" aria-expanded="false">
+                Ordenar por: <span class="text-success"> <?= $textoOrdem; ?></span>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownOrdenarPor">
+                <li><a class="dropdown-item" href="finalizacoes.php">Mais Recentes</a></li>
+                <li><a class="dropdown-item" href="finalizacoes.php?ordem=antigos">Mais Antigos</a></li>
+                <li><a class="dropdown-item" href="finalizacoes.php?ordem=maior-avaliacao">Maior Avaliação</a></li>
+                <li><a class="dropdown-item" href="finalizacoes.php?ordem=menor-avaliacao">Menor Avaliação</a></li>
+            </ul>
+    </div>
 
     <div class="mt-5" id="container-recebe-finalizacoes">
         <!-- tecnicas filtradas vem do js -->

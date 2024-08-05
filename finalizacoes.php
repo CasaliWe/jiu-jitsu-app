@@ -2,9 +2,25 @@
     // verifica auth
     include_once 'helpers/verifica-auth.php';
 
+    // pegando a ordem pela URL
+    $ordem = isset($_GET['ordem']) ? $_GET['ordem'] : 'recentes';
+    $textoOrdem = '';
+    if($ordem == 'recentes'){
+        $textoOrdem = 'Mais Recentes';
+    }else if($ordem == 'antigos'){
+        $textoOrdem = 'Mais Antigos';
+    }else if($ordem == 'maior-avaliacao'){
+        $textoOrdem = 'Maior Avaliação';
+    }else if($ordem == 'menor-avaliacao'){
+        $textoOrdem = 'Menor Avaliação';
+    }else{
+        $textoOrdem = 'Mais Recentes';
+    }
+
+
     //busca totas as imagens dos treinos
     use Repositories\TecnicaRepository;
-    $tecnicas = TecnicaRepository::getAllTecnicas();
+    $tecnicas = TecnicaRepository::getAllTecnicas($ordem);
 ?>
 
 <!DOCTYPE html>

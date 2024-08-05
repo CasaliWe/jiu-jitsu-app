@@ -81,27 +81,26 @@
 <!-- mask obervações -->
 <script>
   // mask obervações
-  document.getElementById('observacoes_treino').addEventListener('input', function(e) {
+  var observacoesTreino = document.getElementById('observacoes_treino');
+  observacoesTreino.addEventListener('input', function(e) {
       var value = e.target.value;
-      var asteriscos = (value.match(/\*/g) || []).length;
-      if (value.length === 1 && value[0] !== '*' && asteriscos < 5) {
-          e.target.value = '* ' + value;
-      } else if (value.slice(-1) === ';' && value.slice(-3) !== '* ;' && asteriscos < 5) {
-          e.target.value = value + '\n* ';
+
+      if (!value.startsWith('* ')) {
+          value = '* ' + value.trim();
       }
+
+      value = value.charAt(0).toUpperCase() + value.slice(1);
+
+      e.target.value = value;
   });
 
-  document.getElementById('observacoes_treino').addEventListener('keydown', function(e) {
+  observacoesTreino.addEventListener('keydown', function(e) {
       if (e.key === 'Enter') {
-          e.preventDefault(); // impede a quebra de linha padrão
-          var value = e.target.value;
-          var asteriscos = (value.match(/\*/g) || []).length;
-          if (value.slice(-1) !== ';' && value.slice(-3) !== '* ;' && asteriscos < 5) {
-              e.target.value = value + ';\n* ';
-          }
+          e.preventDefault(); // Impede a quebra de linha padrão
       }
   });
 
+  
   // mask input aula
   document.getElementById('aula_treino').addEventListener('input', function(e) {
     var value = e.target.value;
