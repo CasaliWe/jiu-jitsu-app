@@ -13,7 +13,7 @@ class UserRepository {
     // busca todos os usuários
     public static function getAllUsers() {
         try {
-            return User::all();
+            return User::orderBy('nome', 'asc')->get();
         } catch (\Exception  $e) {
             error_log('Erro ao buscar todos os usuários: ' . $e, 3, __DIR__ . '/../error.log');
             return false;
@@ -204,6 +204,23 @@ class UserRepository {
             }
         } catch (\Exception  $e) {
             error_log('Erro ao atualizar a senha: ' . $e, 3, __DIR__ . '/../error.log');
+            return false;
+        }
+    }
+
+
+    // Deletar um usuário
+    public static function deletarUser($identificador) {
+        try {
+            $res = User::where('identificador', $identificador)->delete();
+
+            if ($res) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (\Exception  $e) {
+            error_log('Erro ao deletar o usúario: ' . $e, 3, __DIR__ . '/../error.log');
             return false;
         }
     }

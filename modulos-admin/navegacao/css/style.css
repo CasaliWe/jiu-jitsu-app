@@ -33,9 +33,9 @@
 .link-nav-desktop{
     width: 100%;
     padding-left: 12%;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    font-size: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 9px;
     color: rgba(0, 0, 0, 0.767);
     font-weight: 600;
 }
@@ -54,7 +54,7 @@
     .link-nav-desktop{
         padding-top: 20px;
         padding-bottom: 20px;
-        font-size: 17px;
+        font-size: 13px;
     }
 }
 

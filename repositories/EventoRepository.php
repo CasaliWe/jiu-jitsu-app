@@ -6,9 +6,13 @@ use Models\Evento;
 class EventoRepository {
     
     // busca todos os eventos
-    public static function getAllEventos() {
+    public static function getAllEventos($local) {
         try {
-            return Evento::all();
+            if($local == 'todos'){
+                return Evento::all();
+            }else{
+                return Evento::where('estado', $local)->get();
+            }
         } catch (\Exception  $e) {
             error_log('Erro ao buscar todos os eventos: ' . $e, 3, __DIR__ . '/../error.log');
             return false;

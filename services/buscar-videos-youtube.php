@@ -8,19 +8,19 @@ use Repositories\VideoRepository;
 $apiKey = $_ENV['KEY_YOUTUBE_API'];
 
 // Termos de busca
-$queries = ["jiu jitsu", "jiu jitsu tecnicas", "jiu jitsu cortes podcasts", "boxe", "ufc", "judo"];
+$queries = ["finalizações jiu jitsu", "podcasts jiu jitsu"];
 
 // Data de início
 $dataAtual = new DateTime();
 
 // Subtrair 7 dias para obter a data de uma semana atrás
-$dataAtual->sub(new DateInterval('P14D'));
+$dataAtual->sub(new DateInterval('P30D'));
 
 // Formatar a data para o formato ISO 8601
 $publishedAfter = $dataAtual->format('Y-m-d\TH:i:s\Z');
 
 // Número máximo de resultados por termo
-$maxResults = 15;
+$maxResults = 40;
 
 // Função para fazer requisições à API do YouTube
 function fetchVideos($query, $apiKey, $publishedAfter, $maxResults) {

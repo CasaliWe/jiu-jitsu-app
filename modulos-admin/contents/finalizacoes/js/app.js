@@ -239,3 +239,16 @@ function openModalEditarFinalizacao() {
     var meuModal = new bootstrap.Modal(document.getElementById('modal-editar-finalizacao'));
     meuModal.show();
 }
+
+
+
+
+// DESTACAR
+async function destacar(id){
+    const res = await fetch(`${base_url}/modulos-admin/contents/finalizacoes/php/destacar-finalizacao.php?id=${id}`)
+    if (res) {
+        var url = new URL(window.location.href);
+        url.searchParams.set('success', 'true');
+        window.location.href = url.toString();
+    }
+}

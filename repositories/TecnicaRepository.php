@@ -236,4 +236,35 @@ class TecnicaRepository {
             return false;
         }
     }
+
+
+    // Destacar finalizacao
+    public static function destacarFinalizacao($id) {
+        try {
+            $finalizacao = Finalizacao::where('id', $id)->update(['destaque' => 1]);
+            if($finalizacao) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (\Exception  $e) {
+            error_log('Erro ao destacar finalização: ' . $e, 3, __DIR__ . '/../error.log');
+            return false;
+        }
+    }
+
+    // Remover destaque finalizacao
+    public static function removerDestaqueFinalizacao($id) {
+        try {
+            $finalizacao = Finalizacao::where('id', $id)->update(['destaque' => 0]);
+            if($finalizacao) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (\Exception  $e) {
+            error_log('Erro ao remover destaque da finalização: ' . $e, 3, __DIR__ . '/../error.log');
+            return false;
+        }
+    }
 }

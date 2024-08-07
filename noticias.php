@@ -2,6 +2,9 @@
     // verifica auth
     include_once 'helpers/verifica-auth.php';
 
+    // verifica manutencao
+    include_once 'helpers/verifica-manutencao.php';
+
     //busca todas as noticias
     use Repositories\NoticiaRepository;
     $noticias = NoticiaRepository::getAllNoticias();

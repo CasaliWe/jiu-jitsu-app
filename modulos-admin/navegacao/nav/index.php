@@ -15,6 +15,7 @@
     $activeNoticias = false;
     $activeVideos = false;
     $activeEventos = false;
+    $activeAdmin = false;
 
     // Devolve o nome da página atual
     if(strpos($urlAtual, 'dashboard') !== false){
@@ -44,6 +45,9 @@
     }else if(strpos($urlAtual, 'eventos') !== false){
         $tituloContentPagina = "Eventos esportivos";
         $activeEventos = true;
+    }else if(strpos($urlAtual, 'admin') !== false){
+        $tituloContentPagina = "Administração do sistema";
+        $activeAdmin = true;
     }
 ?>
 
@@ -60,5 +64,8 @@
     <a href="eventos.php" class="link-nav-desktop <?= $activeEventos ? 'active-link-desktop' : ''; ?>">Eventos</a>
     <a href="videos.php" class="link-nav-desktop <?= $activeVideos ? 'active-link-desktop' : ''; ?>">Vídeos esportes</a>
     <a href="noticias.php" class="link-nav-desktop <?= $activeNoticias ? 'active-link-desktop' : ''; ?>">Notícias esportes</a>
+    <?php if($user->login == $_ENV['USER_ADMIN']){ ?>
+        <a href="admin.php" class="link-nav-desktop <?= $activeAdmin ? 'active-link-desktop' : ''; ?>">Administração do sistema</a>
+    <?php } ?>
     <a class="link-nav-desktop"><?php include "modulos-admin/btn-logout/index.php"; ?></a>
 </nav>

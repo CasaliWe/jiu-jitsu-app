@@ -6,5 +6,6 @@ use Repositories\TecnicaRepository;
 use Repositories\TreinoRepository;
 use Repositories\NoticiaRepository;
 use Repositories\VideoRepository;
+use Repositories\AdminRepository;
 
 // TESTAR FUNCTIONS QUE ESTÃO DENTRO DOS REPOSITORIES

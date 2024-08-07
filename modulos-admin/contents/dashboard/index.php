@@ -42,7 +42,7 @@
 
         <div class='mb-3 col-12 col-lg-4'>
           <label for='academia' class="small">Academia*</label>
-          <input type='type' maxlength="20" id='text' value="<?= $user->academia; ?>" name='academia' class='form-control'>
+          <input type='type' maxlength="20" id='text' value="<?= $user->academia; ?>" name='academia' class='form-control' required>
         </div>
 
         <div class="col-12 col-lg-3 mb-4 text-center text-lg-start">

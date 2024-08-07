@@ -1,6 +1,9 @@
 <?php
     // verifica auth
     include_once 'helpers/verifica-auth.php';
+
+    // verifica manutencao
+    include_once 'helpers/verifica-manutencao.php';
 ?>
 
 <!DOCTYPE html>

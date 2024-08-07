@@ -2,6 +2,9 @@
     // verifica auth
     include_once 'helpers/verifica-auth.php';
 
+    // verifica manutencao
+    include_once 'helpers/verifica-manutencao.php';
+
     // pegando a ordem pela URL
     $ordem = isset($_GET['ordem']) ? $_GET['ordem'] : 'recentes';
     $textoOrdem = '';
@@ -69,6 +72,10 @@
     <!-- MODAL EDITAR FINALIZAÇÃO -->
     <?php include_once "modulos-admin/contents/finalizacoes/modais/modal-editar-finalizacao/index.php"; ?>
     <!-- MODAL EDITAR FINALIZAÇÃO -->
+
+    <!-- MODAL DESTAQUES -->
+    <?php include_once "modulos-admin/contents/finalizacoes/modais/modal-destaques/index.php"; ?>
+    <!-- MODAL DESTAQUES -->
 
 
     <!--BOOTSTRAP JS-->

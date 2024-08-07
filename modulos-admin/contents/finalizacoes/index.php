@@ -28,16 +28,20 @@
         </div>
     </div>
     
-    <div id="ordenar-por" class="dropdown mt-3 mt-lg-0">
-            <a class="small text-dark fw-semibold dropdown-toggle" href="#" role="button" id="dropdownOrdenarPor" data-bs-toggle="dropdown" aria-expanded="false">
-                Ordenar por: <span class="text-success"> <?= $textoOrdem; ?></span>
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="dropdownOrdenarPor">
-                <li><a class="dropdown-item" href="finalizacoes.php">Mais Recentes</a></li>
-                <li><a class="dropdown-item" href="finalizacoes.php?ordem=antigos">Mais Antigos</a></li>
-                <li><a class="dropdown-item" href="finalizacoes.php?ordem=maior-avaliacao">Maior Avaliação</a></li>
-                <li><a class="dropdown-item" href="finalizacoes.php?ordem=menor-avaliacao">Menor Avaliação</a></li>
-            </ul>
+    <div class="mt-3 mt-lg-0 d-flex justify-content-between align-items-center">
+        <div id="ordenar-por" class="dropdown">
+                <a class="small text-dark fw-semibold dropdown-toggle" href="#" role="button" id="dropdownOrdenarPor" data-bs-toggle="dropdown" aria-expanded="false">
+                    Ordenar por: <span class="text-success"> <?= $textoOrdem; ?></span>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownOrdenarPor">
+                    <li><a class="dropdown-item" href="finalizacoes.php">Mais Recentes</a></li>
+                    <li><a class="dropdown-item" href="finalizacoes.php?ordem=antigos">Mais Antigos</a></li>
+                    <li><a class="dropdown-item" href="finalizacoes.php?ordem=maior-avaliacao">Maior Avaliação</a></li>
+                    <li><a class="dropdown-item" href="finalizacoes.php?ordem=menor-avaliacao">Menor Avaliação</a></li>
+                </ul>
+        </div>
+        
+        <button class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#destaques-finalizacoes">Destaques</button>
     </div>
 
     <div class="mt-5" id="container-recebe-finalizacoes">
@@ -80,7 +84,8 @@
                             <i class="fas fa-ellipsis-v fs-5"></i>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <li><a class="dropdown-item" onclick="editarFin('<?= $tec['id'] ?>')">Editar</a></li>
-                                <li><a class="dropdown-item" onclick="deletarFin('<?= $tec['id'] ?>')">Deletar</a></li>
+                                <li><a class="dropdown-item" onclick="deletarFin('<?= $tec['id'] ?>')">Remover</a></li>
+                                <li><a class="dropdown-item" onclick="destacar('<?= $tec['id'] ?>')">Destacar</a></li>
                             </ul>
                         </div>
                     </h2>

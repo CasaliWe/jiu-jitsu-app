@@ -2,6 +2,9 @@
     // verifica auth
     include_once 'helpers/verifica-auth.php';
 
+    // verifica manutencao
+    include_once 'helpers/verifica-manutencao.php';
+
     // Pegando parametro do filtro da url
     $getFiltro = isset($_GET['filtro']) ? $_GET['filtro'] : 'todos';
     $filtro;

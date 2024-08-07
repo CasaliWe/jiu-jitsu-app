@@ -2,9 +2,13 @@
     // verifica auth
     include_once 'helpers/verifica-auth.php';
 
+    // verifica manutencao
+    include_once 'helpers/verifica-manutencao.php';
+
     //busca todos os eventos
     use Repositories\EventoRepository;
-    $eventos = EventoRepository::getAllEventos();
+    $local = isset($_GET['local']) ? $_GET['local'] : 'todos';
+    $eventos = EventoRepository::getAllEventos($local);
 ?>
 
 <!DOCTYPE html>

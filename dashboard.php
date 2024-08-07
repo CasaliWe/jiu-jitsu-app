@@ -2,6 +2,9 @@
     // verifica auth
     include_once 'helpers/verifica-auth.php';
 
+    // verifica manutencao
+    include_once 'helpers/verifica-manutencao.php';
+
     //busca dados do usuário
     use Repositories\UserRepository;
     $user = UserRepository::getUser($_COOKIE['identificador']);
