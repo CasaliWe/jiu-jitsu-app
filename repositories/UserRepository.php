@@ -144,9 +144,17 @@ class UserRepository {
     }
 
     // Atualizar o campos diretamente
-    public static function updateUserData($identificador, $nome, $sobrenome, $email, $faixa, $academia) {
+    public static function updateUserData($identificador, $nome, $sobrenome, $email, $faixa, $academia, $bio, $cidade) {
         try {
-            $userSuccess = User::where('identificador', $identificador)->update(['nome' => $nome, 'sobrenome' => $sobrenome, 'email' => $email, 'faixa' => $faixa, 'academia' => $academia]);
+            // busca os emails e verifica se o email ja existe
+            $user = User::where('email', $email)->first();
+            if($user){
+                if($user->identificador != $identificador){
+                    return false;
+                }
+            }
+
+            $userSuccess = User::where('identificador', $identificador)->update(['nome' => $nome, 'sobrenome' => $sobrenome, 'email' => $email, 'faixa' => $faixa, 'academia' => $academia, 'bio' => $bio, 'cidade' => $cidade]);
  
             if ($userSuccess) {
                 return true;

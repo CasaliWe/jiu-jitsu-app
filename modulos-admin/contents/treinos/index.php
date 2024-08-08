@@ -6,7 +6,7 @@
 
 <!-- TREINOS -->
 <section>
-    <h6 class="small mb-4">Aqui você pode <strong>Adicionar</strong> todos os seus treinos!</h6>
+    <h6 class="small mb-5">Aqui você pode <strong>Adicionar</strong> os treinos do seu dia a dia!</h6>
 
     <div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between">
         <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal-treino">Adicionar novo treino +</button>
@@ -84,20 +84,24 @@
         
                         <div class="row my-3">
                             <div id="slider" class="mb-4 col-12 col-lg-6 col-xxl-5">
-                                
-                                <!-- Swiper -->
-                                <div class="swiper mySwiper">
-                                    <div class="swiper-wrapper">
-                                        <!-- Slides -->
-                                         <?php foreach ($imgs_treino as $img) { ?>     
-                                            <div onclick="abrirModalPreviaImgsTreino('<?= $img; ?>')" style="cursor: pointer;" class="swiper-slide container-img-treino"> <img src="<?= $base_url; ?>assets/imagens/site-admin/treinos/<?= $img ?>"> </div>
-                                         <?php } ?>
-                                        <!-- Slides -->
+
+                                <?php if(count($imgs_treino) == 1){ ?>
+                                    <div onclick="abrirModalPreviaImgsTreino('<?= $imgs_treino[0]; ?>')" style="cursor: pointer;" class="swiper-slide container-img-treino"> <img src="<?= $base_url; ?>assets/imagens/site-admin/treinos/<?= $imgs_treino[0]; ?>"> </div>
+                                <?php }else{ ?>
+                                    <!-- Swiper -->
+                                    <div class="swiper mySwiper">
+                                        <div class="swiper-wrapper">
+                                            <!-- Slides -->
+                                            <?php foreach ($imgs_treino as $img) { ?>     
+                                                <div onclick="abrirModalPreviaImgsTreino('<?= $img; ?>')" style="cursor: pointer;" class="swiper-slide container-img-treino"> <img src="<?= $base_url; ?>assets/imagens/site-admin/treinos/<?= $img ?>"> </div>
+                                            <?php } ?>
+                                            <!-- Slides -->
+                                        </div>
+                                        <!-- paginação -->
+                                        <div class="swiper-pagination"></div>
                                     </div>
-                                    <!-- paginação -->
-                                    <div class="swiper-pagination"></div>
-                                </div>
-                                <!-- Swiper -->
+                                    <!-- Swiper -->
+                                <?php } ?>
 
                             </div>
 

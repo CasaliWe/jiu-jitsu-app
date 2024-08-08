@@ -4,7 +4,7 @@
 
 <!-- MÉTRICAS -->
 <section>
-    <h6 class="small mb-4">Veja os resultados do seus treinos em um <strong>determinado período de tempo</strong>!</h6>
+    <h6 class="small mb-5">Veja os resultados do seus treinos em um <strong>determinado período de tempo</strong>!</h6>
 
     <div class="row align-items-end">
         <div class='mb-3 mb-lg-0 col-12 col-lg-5'>

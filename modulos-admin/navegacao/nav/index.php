@@ -16,6 +16,8 @@
     $activeVideos = false;
     $activeEventos = false;
     $activeAdmin = false;
+    $activeObsGerais = false;
+    $activeCompeticoes = false;
 
     // Devolve o nome da página atual
     if(strpos($urlAtual, 'dashboard') !== false){
@@ -28,10 +30,10 @@
         $tituloContentPagina = "Todas as Finalizações";
         $activeFinalizacao = true;
     }else if(strpos($urlAtual, 'observacoes') !== false){
-        $tituloContentPagina = "Todas as Observações dos treinos";
+        $tituloContentPagina = "Observações dos treinos";
         $activeObsTreino = true;
     }else if(strpos($urlAtual, 'galeria') !== false){
-        $tituloContentPagina = "Todas as Imagens dos treinos";
+        $tituloContentPagina = "Imagens dos treinos";
         $activeGaleria = true;
     }else if(strpos($urlAtual, 'metricas') !== false){
         $tituloContentPagina = "Tudo sobre suas métricas";
@@ -43,11 +45,17 @@
         $tituloContentPagina = "Vídeos sobre o mundo dos esportes";
         $activeVideos = true;
     }else if(strpos($urlAtual, 'eventos') !== false){
-        $tituloContentPagina = "Eventos esportivos";
+        $tituloContentPagina = "Eventos de Grappling";  
         $activeEventos = true;
     }else if(strpos($urlAtual, 'admin') !== false){
         $tituloContentPagina = "Administração do sistema";
         $activeAdmin = true;
+    }else if(strpos($urlAtual, 'anotacoes') !== false){
+        $tituloContentPagina = "Observações Gerais";
+        $activeObsGerais = true;
+    }else if(strpos($urlAtual, 'competicoes') !== false){
+        $tituloContentPagina = "Minhas Competições";
+        $activeCompeticoes = true;
     }
 ?>
 
@@ -55,17 +63,19 @@
 
 
 <nav class="d-flex flex-column w-100">
-    <a href="dashboard.php" class="link-nav-desktop <?= $activeDashboard ? 'active-link-desktop' : ''; ?>">Dados</a>
-    <a href="treinos.php" class="link-nav-desktop <?= $activeTreinos ? 'active-link-desktop' : ''; ?>">Treinos</a>
-    <a href="finalizacoes.php" class="link-nav-desktop <?= $activeFinalizacao ? 'active-link-desktop' : ''; ?>">Finalizações</a>
-    <a href="observacoes.php" class="link-nav-desktop <?= $activeObsTreino ? 'active-link-desktop' : ''; ?>">Observações treinos</a>
-    <a href="galeria.php" class="link-nav-desktop <?= $activeGaleria ? 'active-link-desktop' : ''; ?>">Galeria</a>
-    <a href="metricas.php" class="link-nav-desktop <?= $activeMetricas ? 'active-link-desktop' : ''; ?>">Métricas</a>
-    <a href="eventos.php" class="link-nav-desktop <?= $activeEventos ? 'active-link-desktop' : ''; ?>">Eventos</a>
-    <a href="videos.php" class="link-nav-desktop <?= $activeVideos ? 'active-link-desktop' : ''; ?>">Vídeos esportes</a>
-    <a href="noticias.php" class="link-nav-desktop <?= $activeNoticias ? 'active-link-desktop' : ''; ?>">Notícias esportes</a>
+    <a href="dashboard.php" class="link-nav-desktop <?= $activeDashboard ? 'active-link-desktop' : ''; ?>">Perfil</a>
+    <a href="treinos.php" class="link-nav-desktop <?= $activeTreinos ? 'active-link-desktop' : ''; ?>">Meus Treinos</a>
+    <a href="competicoes.php" class="link-nav-desktop <?= $activeCompeticoes ? 'active-link-desktop' : ''; ?>">Minhas Competições</a>
+    <a href="finalizacoes.php" class="link-nav-desktop <?= $activeFinalizacao ? 'active-link-desktop' : ''; ?>">Minhas Finalizações</a>
+    <a href="observacoes.php" class="link-nav-desktop <?= $activeObsTreino ? 'active-link-desktop' : ''; ?>">Observações Treinos</a>
+    <a href="anotacoes.php" class="link-nav-desktop <?= $activeObsGerais ? 'active-link-desktop' : ''; ?>">Observações Gerais</a>
+    <a href="galeria.php" class="link-nav-desktop <?= $activeGaleria ? 'active-link-desktop' : ''; ?>">Galeria de Fotos</a>
+    <a href="metricas.php" class="link-nav-desktop <?= $activeMetricas ? 'active-link-desktop' : ''; ?>">Minhas Métricas</a>
+    <a href="eventos.php" class="link-nav-desktop <?= $activeEventos ? 'active-link-desktop' : ''; ?>">Eventos de Grappling</a>
+    <a href="videos.php" class="link-nav-desktop <?= $activeVideos ? 'active-link-desktop' : ''; ?>">Vídeos de Grappling</a>
+    <a href="noticias.php" class="link-nav-desktop <?= $activeNoticias ? 'active-link-desktop' : ''; ?>">Notícias</a>
     <?php if($user->login == $_ENV['USER_ADMIN']){ ?>
-        <a href="admin.php" class="link-nav-desktop <?= $activeAdmin ? 'active-link-desktop' : ''; ?>">Administração do sistema</a>
+        <a href="admin.php" class="link-nav-desktop <?= $activeAdmin ? 'active-link-desktop' : ''; ?>">Admin do sistema</a>
     <?php } ?>
     <a class="link-nav-desktop"><?php include "modulos-admin/btn-logout/index.php"; ?></a>
 </nav>

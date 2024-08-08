@@ -5,7 +5,7 @@
 
 <!-- OBSERVAÇÕES -->
 <section>
-    <h6 class="small mb-5">Veja todas as suas <strong>observações</strong> dos seus <strong>treinos</strong>!</h6>
+    <h6 class="small mb-5">Veja todas as suas <strong>observações</strong> cadastradas em cada um dos seus <strong>treinos</strong>!</h6>
 
     <?php if(count($observacoes) == 0){
         echo "<h6 class='p-3 mt-5 text-center border rounded text-secondary'>Nenhuma observação cadastrada!</h6>";

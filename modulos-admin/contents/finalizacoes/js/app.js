@@ -252,3 +252,13 @@ async function destacar(id){
         window.location.href = url.toString();
     }
 }
+
+// REMOVER DESTAQUE
+async function removerDestaque(id){
+    const res = await fetch(`${base_url}/modulos-admin/contents/finalizacoes/php/remover-destaque-finalizacao.php?id=${id}`)
+    if (res) {
+        var url = new URL(window.location.href);
+        url.searchParams.set('delete', 'true');
+        window.location.href = url.toString();
+    }
+}

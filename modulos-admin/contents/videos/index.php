@@ -35,7 +35,7 @@
 
 <!-- VÍDEOS -->
 <section>
-    <h6 class="small mb-4">Veja alguns vídeos relevantes pelo mundo dos <strong>esportes</strong> de <strong>combate</strong>!</h6>
+    <h6 class="small mb-5">Veja alguns vídeos relevantes pelo mundo dos <strong>esportes</strong> de <strong>combate</strong>!</h6>
 
     <a href="videos.php" class="mb-5 btn btn-success btn-sm">Atualizar vídeos</a>
 

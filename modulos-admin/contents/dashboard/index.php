@@ -8,7 +8,9 @@
 
 <!-- DASHBOARD -->
 <section>
-    <h6 class="small mb-5">Aqui você pode <strong>atualizar</strong> todos os dados da sua conta!</h6>
+    <h6 class="small mb-3">Aqui você pode <strong>atualizar</strong> todos os dados da sua conta!</h6>
+
+    <button type="button" class="mb-5 btn-sm btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal-perfil"><i class="fas fa-mouse-pointer me-2"></i> Visualizar meu perfil</button> 
 
     <form action="modulos-admin/contents/dashboard/php/atualizar-dados-user.php" class="row pb-4 border-bottom" method="post">
       <input type="hidden" name="identificador" value="<?= $_COOKIE['identificador']; ?>">  
@@ -23,12 +25,12 @@
           <input type='type' id='sobrenome' value="<?= $user->sobrenome; ?>" name='sobrenome' class='form-control' required>
         </div>
 
-        <div class='mb-3 col-12 col-lg-4'>
+        <div class='mb-3 col-12 col-lg-6'>
           <label for='email' class="small">E-mail*</label>
           <input type='type' id='email' value="<?= $user->email; ?>" name='email' class='form-control' required>
         </div>
 
-        <div class='mb-3 col-12 col-lg-4'>
+        <div class='mb-3 col-12 col-lg-6'>
           <label for='faixa' class="small">Faixa*</label>
           <select class="form-select" name="faixa" required>
             <option value="">-- Selecione uma faixa --</option>
@@ -40,13 +42,25 @@
           </select>
         </div>
 
-        <div class='mb-3 col-12 col-lg-4'>
+        <div class='mb-3 col-12 col-lg-6'>
           <label for='academia' class="small">Academia*</label>
-          <input type='type' maxlength="20" id='text' value="<?= $user->academia; ?>" name='academia' class='form-control' required>
+          <input type='text' maxlength="20" id='academia' value="<?= $user->academia; ?>" name='academia' class='form-control' required>
         </div>
 
+        <div class='mb-3 col-12 col-lg-6'>
+          <label for='cidade' class="small">Cidade*</label>
+          <input type='text' maxlength="20" id='cidade' value="<?= $user->cidade; ?>" name='cidade' class='form-control' required>
+        </div>
+
+        <div class='mb-3 col-12'>
+          <label for='bio' class="small">Bio*</label>
+          <textarea rows="3" maxlength="100" id='bio' name='bio' class='form-control' required><?= $user->bio; ?></textarea>
+        </div>
+
+        
+
         <div class="col-12 col-lg-3 mb-4 text-center text-lg-start">
-            <button type="submit" class="mt-3 px-5 btn btn-success btn-sm">ATUALIZAR</button>
+            <button type="submit" class="mt-3 py-2 px-5 py-lg-1 w-100 btn btn-success btn-sm">ATUALIZAR</button>
         </div>
     </form>
 
@@ -67,7 +81,7 @@
         </div>
 
         <div class="col-12 col-lg-3 mb-4 text-center text-lg-start">
-            <button type="submit" class="mt-3 px-5 btn btn-success btn-sm">ATUALIZAR</button>
+            <button type="submit" class="mt-3 py-2 px-5 py-lg-1 w-100 btn btn-success btn-sm">ATUALIZAR</button>
         </div>
     </form>
 
@@ -91,7 +105,7 @@
         </div>
 
         <div class="col-12 col-lg-3 mb-4 text-center text-lg-start">
-            <button type="submit" class="mt-3 px-5 btn btn-success btn-sm">ATUALIZAR</button>
+            <button type="submit" class="mt-3 py-2 py-lg-1 px-5 w-100 btn btn-success btn-sm">ATUALIZAR</button>
         </div>
     </form>
 </section>

@@ -45,6 +45,10 @@
      <?php include_once "modulos-admin/modal-aviso/index.php"; ?>
     <!-- MODAL AVISOS -->
 
+    <!-- MODAL PERFIL -->
+    <?php include_once "modulos-admin/modal-perfil/index.php"; ?>
+    <!-- MODAL PERFIL -->
+
 
 
     <!--BOOTSTRAP JS-->

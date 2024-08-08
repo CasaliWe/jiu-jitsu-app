@@ -59,7 +59,7 @@
 
 <!-- NOTÍCIAS -->
 <section>
-    <h6 class="small mb-3">Veja as notícias pelo mundo dos <strong>esportes</strong> de <strong>combate</strong>!</h6>
+    <h6 class="small mb-5">Fique por dentro das principais <strong>notícias</strong> sobre o mundo dos esportes!</h6>
 
     <div class="row">
         <?php foreach ($noticias as $noticia) { ?>

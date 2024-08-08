@@ -18,6 +18,10 @@
                     if(count($finalizacoesDestaque) == 0){
                         echo '<p class="py-3 text-center small">Sem finalizações em destaque!</p>';
                     }
+
+                    if(count($finalizacoesDestaque) != 0){
+                        echo '<p class="mb-2 small">Total: <span class="text-danger fw-bold fs-6">'.count($finalizacoesDestaque).'</span></p>';
+                    }
                 ?>
 
                 <?php foreach ($finalizacoesDestaque as $tec) { ?>

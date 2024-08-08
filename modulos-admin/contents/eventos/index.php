@@ -35,7 +35,7 @@
 
 <!-- EVENTOS -->
 <section>
-    <h6 class="small mb-5">Veja os próximos <strong>eventos</strong> na sua <strong>região</strong>!</h6>
+<h6 class="small mb-5">Fique por dentro dos <strong>eventos</strong> na sua região!</h6>
 
     <div class="row mb-5">
         <div class="col-12 col-lg-3">

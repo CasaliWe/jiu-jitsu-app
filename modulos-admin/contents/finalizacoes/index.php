@@ -5,7 +5,7 @@
 
 <!-- FINALIZAÇÕES -->
 <section>
-    <h6 class="small mb-4">Adicione, remova ou atualize todas as suas <strong>finalizações</strong>!</h6>
+    <h6 class="small mb-5">Adicione, remova ou atualize todas as suas <strong>finalizações</strong> cadastradas nesta sessão ou através de seus treinos!</h6>
 
     <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalAddFinalizacao">Adicionar finalizações +</button>
 
@@ -75,7 +75,7 @@
                                 </div>
                                 <div>
                                     <span class="text-secondary"><?= $tec['posicoes']['nome'] ?> -</span>
-                                    <span class="fw-semibold"><?= $tec['nome'] ?></span>
+                                    <span class="fw-semibold <?= $tec['destaque'] ? 'text-danger' : '' ?>"><?= $tec['nome'] ?></span>
                                 </div>
                             </div>
                         </button>
@@ -85,7 +85,11 @@
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <li><a class="dropdown-item" onclick="editarFin('<?= $tec['id'] ?>')">Editar</a></li>
                                 <li><a class="dropdown-item" onclick="deletarFin('<?= $tec['id'] ?>')">Remover</a></li>
-                                <li><a class="dropdown-item" onclick="destacar('<?= $tec['id'] ?>')">Destacar</a></li>
+                                <?php if($tec['destaque']){ ?>
+                                    <li><a class="dropdown-item" onclick="removerDestaque('<?= $tec['id'] ?>')">Tirar destaque</a></li>
+                                <?php  }else{ ?>
+                                    <li><a class="dropdown-item" onclick="destacar('<?= $tec['id'] ?>')">Destacar</a></li>
+                                <?php } ?>
                             </ul>
                         </div>
                     </h2>

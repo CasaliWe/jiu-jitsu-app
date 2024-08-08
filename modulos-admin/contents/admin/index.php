@@ -36,9 +36,10 @@
                         <img style="cursor: pointer;" onclick="abrirModalImgUser('<?= $u['foto'] ? $base_url . 'assets/imagens/site-admin/ids/'. $u['foto'] : $base_url . 'assets/imagens/site-admin/ids/'. 'img-id.jpg' ?>', '<?= $u['nome']; ?>')" src="<?php echo $base_url ?>assets/imagens/site-admin/ids/<?= $u->foto ? $u->foto : 'img-id.jpg' ?>">
                     </div>
                     <div>
-                        <p class="my-0 _infos-users"><strong>Nome:</strong> <?= $u['nome']; ?> <?= $u['sobrenome']; ?></p>
-                        <p class="my-0 _infos-users"><strong>Faixa:</strong> <?= strtoupper($u['faixa']) ?></p>
-                        <p class="my-0 _infos-users"><strong>Academia:</strong> <?= $u['academia']; ?></p>
+                        <p class="small my-0 _infos-users"><strong>Nome:</strong> <?= $u['nome']; ?> <?= $u['sobrenome']; ?></p>
+                        <p class="small my-0 _infos-users"><strong>Faixa:</strong> <?= strtoupper($u['faixa']) ?></p>
+                        <p class="small my-0 _infos-users"><strong>Academia:</strong> <?= $u['academia']; ?></p>
+                        <p class="small my-0 _infos-users"><strong>Cidade:</strong> <?= $u['cidade']; ?></p>
                     </div>
                 </div>
 

@@ -7,7 +7,7 @@
 
 <!-- GALERIA -->
 <section>
-    <h6 class="small mb-4">Veja todas as suas fotos de todos os seus <strong>treinos</strong>!</h6>
+    <h6 class="small mb-5">Veja todas as imagens dos seus <strong>treinos</strong> com data e de forma simplificada!</h6>
 
     <?php if(count($imagens) == 0){
         echo "<h6 class='p-3 mt-5 text-center border rounded text-secondary'>Nenhuma imagem cadastrada!</h6>";

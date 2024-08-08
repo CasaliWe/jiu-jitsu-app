@@ -13,3 +13,10 @@ function abrirNavMobile(){
         document.getElementById("btn-close").style.cssText = `display: block !important;`
      }
 }
+
+
+// abrir modal perfil
+function abrirModalPerfil(){
+   var meuModal = new bootstrap.Modal(document.getElementById('modal-perfil'));
+   meuModal.show();
+}
