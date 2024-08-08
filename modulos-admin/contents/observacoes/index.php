@@ -16,7 +16,7 @@
             $items = [];
             foreach ($observacoes as $obs) {
                 foreach ($obs['observacoes_treino'] as $txtObs) {
-                    if($txtObs != '* Sem observações para esse treino') {
+                    if(strpos($txtObs, 'Sem observações') === false) {
                         echo "<p class='d-flex justify-content-between align-items-center py-2 border-bottom'><span class='w-75'>$txtObs</span> <a class='text-danger ms-4 small text-end' href='treinos.php?scroll=btn-treino-{$obs['treino_id']}'>Acessar treino</a></p>";
                     }
                 }
