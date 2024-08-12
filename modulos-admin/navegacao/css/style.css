@@ -43,6 +43,13 @@
     background-color: rgba(128, 128, 128, 0.443);
     color: black;
 }
+@media(max-width:992px){
+    .link-nav-desktop{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: 12px;
+    }
+}
 
 .active-link-desktop{
      background-color: gray !important;
@@ -54,7 +61,7 @@
     .link-nav-desktop{
         padding-top: 20px;
         padding-bottom: 20px;
-        font-size: 13px;
+        font-size: 12px;
     }
 }
 
